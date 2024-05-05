@@ -1,0 +1,13 @@
+* {
+    box-sizing: border-box;
+}
+
+.createBlogForm {
+    display: flex;
+    flex-direction: column;
+    padding-top: 1rem;
+}
+
+label {
+    padding-top: 1rem;
+}

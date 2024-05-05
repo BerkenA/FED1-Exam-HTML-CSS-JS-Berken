@@ -5,12 +5,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Gamer's Archives</title>
-    <link rel="stylesheet" href="css/styles.css">
-    <script src="/main.js" defer></script>
+    <link rel="stylesheet" href="/css/post.css">
+    <script src="/post/post.js" defer></script>
 </head>
 
 <body>
-
+    <h1>Create blog post</h1>
+    <form class="createBlogForm">
+        <label for="text">
+            Title of your blogpost:
+            <input type="text" id="title" name="title" />
+        </label>
+        <label for="text">
+            Body:
+            <input type="text" id="body" name="body" />
+        </label>
+        <label for="text">
+            Tags:
+            <input type="text" id="tags" name="tags" />
+        </label>
+        <label for="image">
+            Submit image:
+            <input type="text" id="image" name="image" />
+        </label>
+        <button class="blogPost" type="submit">Create blog post</button>
+    </form>
 </body>
 
 </html>

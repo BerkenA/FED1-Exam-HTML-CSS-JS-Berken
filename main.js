@@ -22,7 +22,6 @@ function displayBlogList(){
                     <li><a href="${listItem.url}">Copy this link to share this blogpost</a></li>
                 </ul>
             </li>`
-            
         }
     })
 }
