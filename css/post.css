@@ -8,6 +8,19 @@
     padding-top: 1rem;
 }
 
+.blogList {
+    display: flex;
+}
+
+img {
+    width: 200px;
+    height: 200px;
+}
+
 label {
     padding-top: 1rem;
+}
+
+li {
+    list-style-type: none;
 }
