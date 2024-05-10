@@ -18,10 +18,11 @@ function displayBlogList(){
                     <li>${listItem.name}</li>
                     <li>${listItem.body}</li>
                     <li>${listItem.url}</li>
-                    <li>${listItem.id}</li>
+                    <li><a href="/post/edit.html?ID=${listItem.id}">edit blog post</a></li>
                     <li><a href="${listItem.url}">Copy this link to share this blogpost</a></li>
                 </ul>
             </li>`
+            //remember to make a button inside the edit blog post
         }
     })
 }
@@ -31,126 +32,3 @@ displayBlogList();
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-async function fetchBlog(){
-    const displayData = document.getElementById(`postContainer`);
-    displayData.innerHTML = `<p>Loading page...</p>`;
-    const container = await fetch ("https://v2.api.noroff.dev/blog/posts/berate");
-    blogList = await container.json();
-    displayData.innerHTML = "";
-    renderBlog(blogList);
-}
-
-
-function renderBlog(blogs){
-    const displayData = document.getElementById(`postContainer`);
-    displayData.innerHTML = "";
-    blogs.forEach(post => {
-        if(blogs){
-            
-        }
-    });
-}
-
-
-
-function printOddNumbersUpToN(n){
-    for(let i = 0; i < n; i++){
-        if(i % 2===1){
-            console.log(i)
-        }
-    }
-}
