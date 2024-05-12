@@ -31,6 +31,7 @@ function submitBlogPost(event) {
     .then(response => {
         if (response.ok) {
             alert("Post created successfully!");
+            window.location.href = `index.html`
         } else {
             alert("Failed to create post. Please try again.");
         }
@@ -40,3 +41,4 @@ function submitBlogPost(event) {
         console.error("Error creating blog post:", error);
     });
 }
+

@@ -6,13 +6,15 @@ const submitBtn = document.getElementById("submitButton")
 
 
 
+
 function getParam(parameter) {
     const urlParam = new URLSearchParams(window.location.search);
     return urlParam.get(parameter);
 }
 
-const blogPostId = getParam("ID")
-console.log(blogPostId)
+const blogPostId = getParam("ID");
+console.log("URL:", window.location.href);
+console.log("ID Parameter:", blogPostId);
     
     const bearerToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiYmVyYXRlIiwiZW1haWwiOiJiZXJhdGUwMTI3NUBzdHVkLm5vcm9mZi5ubyIsImlhdCI6MTcxMzUyNDEyMX0.QYtGuQiJAcv4l7_Rgsbf-8LdK1wur_htklgdgRkYY68";
 
@@ -33,11 +35,11 @@ console.log(blogPostId)
         })
         .then(data => { 
             const fieldData = data.data
-            console.log(fieldData)
             function populateFields(){
                 titleField.value = fieldData.title
                 bodyField.value = fieldData.body
                 imageField.value = fieldData.media.url
+                tagField.value = fieldData.tags
             }
             populateFields()
         })
@@ -81,6 +83,7 @@ console.log(blogPostId)
                 throw new Error("Failed to update the post");
             } else {
                 alert("Post updated successfully");
+                window.location.href = `index.html`;
             }
             editForm.style.display = "none";
             postContent.innerHTML = `
@@ -94,6 +97,7 @@ console.log(blogPostId)
             console.error("Error updating post:", error.message);
         });
     }
+    
 
     submitBtn.onclick = function editPost() {
         fetch(`https://v2.api.noroff.dev/blog/posts/${userName}`, {
@@ -113,12 +117,7 @@ console.log(blogPostId)
             })
         });
     };
-    
-    
 
-
-    /*My function for deleting
-    FLYTT TIL POST/INDEX
 
     function handleDelete(event) {
         const postId = event.target.dataset.postId;
@@ -142,6 +141,4 @@ console.log(blogPostId)
             });
         }
     }
-    */
-
     fetchBlogPosts();
