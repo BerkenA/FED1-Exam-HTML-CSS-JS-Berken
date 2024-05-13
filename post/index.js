@@ -1,11 +1,10 @@
-
-const bearerToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiYmVyYXRlIiwiZW1haWwiOiJiZXJhdGUwMTI3NUBzdHVkLm5vcm9mZi5ubyIsImlhdCI6MTcxMzUyNDEyMX0.QYtGuQiJAcv4l7_Rgsbf-8LdK1wur_htklgdgRkYY68";
-const userName = "berate"
+const bearerToken = window.localStorage.getItem("Bearer Token")
+const userName = window.localStorage.getItem("User Storage")
 
 
 
 function fetchBlogPosts() {
-    fetch(`https://v2.api.noroff.dev/blog/posts/berate/`, {
+    fetch(`https://v2.api.noroff.dev/blog/posts/${userName}/`, {
         method: "GET",
         headers: {
             "Authorization": `Bearer ${bearerToken}`

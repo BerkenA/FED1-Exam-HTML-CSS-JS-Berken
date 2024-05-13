@@ -1,5 +1,5 @@
-const userName = "berate"
-const bearerToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiYmVyYXRlIiwiZW1haWwiOiJiZXJhdGUwMTI3NUBzdHVkLm5vcm9mZi5ubyIsImlhdCI6MTcxMzUyNDEyMX0.QYtGuQiJAcv4l7_Rgsbf-8LdK1wur_htklgdgRkYY68";
+const userName = window.localStorage.getItem("User Storage")
+const bearerToken = window.localStorage.getItem("Bearer Token")
 
 function displayBlogList(){
     const blogList = document.querySelector(".blogList");

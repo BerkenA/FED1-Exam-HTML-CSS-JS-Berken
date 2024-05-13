@@ -3,8 +3,8 @@ const bodyField = document.getElementById("body")
 const imageField = document.getElementById("image")
 const tagField = document.getElementById("tags")
 const submitBtn = document.getElementById("submitButton")
-const userId = "berate";
-const bearerToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiYmVyYXRlIiwiZW1haWwiOiJiZXJhdGUwMTI3NUBzdHVkLm5vcm9mZi5ubyIsImlhdCI6MTcxMzUyNDEyMX0.QYtGuQiJAcv4l7_Rgsbf-8LdK1wur_htklgdgRkYY68";
+const userId = window.localStorage.getItem("User Storage");
+const bearerToken = window.localStorage.getItem("Bearer Token");
 
 
 
