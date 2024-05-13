@@ -1,3 +1,17 @@
 * {
     box-sizing: border-box;
+    background-color: blanchedalmond;
+}
+
+img {
+    width: 200px;
+    height: 200px;
+}
+
+li {
+    list-style-type: none;
+}
+
+.blogList {
+    display: flex;
 }
