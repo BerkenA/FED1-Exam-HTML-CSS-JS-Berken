@@ -15,16 +15,14 @@ function displayBlogList(){
             console.log(listItem.title)
             blogList.innerHTML+=`
             <li>
-                <ul>
-                    <li><img src="${listItem.media.url}"></li>
-                    <li>${listItem.title}</li>
-                    <li>${listItem.name}</li>
-                    <li>${listItem.body}</li>
-                    <li>${listItem.url}</li>
-                    <li><a href="/post/edit.html?ID=${listItem.id}">edit blog post</a></li>
+                <div class="postCard">
+                    <img src="${listItem.media.url}">
+                    <span>${listItem.title}</span>
+                    <span>${listItem.author.name}</span>
+                    <span>${listItem.body}</span>
+                    <a href="/post/edit.html?ID=${listItem.id}">edit blog post</a>
                     <button onclick="handleDelete('${listItem.id}')" class="deleteButton" data-postId="${listItem.id}">Delete</button>
-                    <li><a href="${listItem.url}">Copy this link to share this blogpost</a></li>
-                </ul>
+                </div>
             </li>`
         }
         

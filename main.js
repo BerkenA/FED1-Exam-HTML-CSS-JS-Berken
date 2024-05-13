@@ -15,13 +15,12 @@ function displayBlogList(){
                 <ul>
                     <li><img src="${listItem.media.url}"></li>
                     <li>${listItem.title}</li>
-                    <li>${listItem.name}</li>
+                    <li>${listItem.author.name}</li>
                     <li>${listItem.body}</li>
-                    <li>${listItem.url}</li>
-                    <li>${listItem.id}</li>
                     <li><a href="${listItem.url}">Copy this link to share this blogpost</a></li>
                 </ul>
             </li>`
+            //Hrefen må være til single post pagen din og ikke listitem.url da den ikke leder noe sted.
         }
     })
 }
