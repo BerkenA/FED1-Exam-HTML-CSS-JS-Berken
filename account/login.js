@@ -2,6 +2,10 @@ const emailLogIn = document.getElementById('email');
 const password = document.getElementById('password');
 const getToken = window.localStorage.getItem("Bearer Token")
 const userId = window.localStorage.getItem("User Storage")
+const timeDate = new Date();
+const minutes = timeDate.getMinutes();
+
+console.log(minutes)
 
 const submitBtn = document.getElementById("submit");
 submitBtn.onclick = function fetchLogin() {
