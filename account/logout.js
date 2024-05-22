@@ -3,7 +3,7 @@ let inactivityTimer;
 // Function to handle logout
 function logout() {
     localStorage.removeItem('authToken');
-    window.location.href = '/account/login-register.html';
+    window.location.href = '/account/login.html';
     alert("You have been logged out due to inactivity"); 
 }
 

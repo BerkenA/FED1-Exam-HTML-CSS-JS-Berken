@@ -1,6 +1,9 @@
+const getToken = window.localStorage.getItem("Bearer Token")
+const userId = window.localStorage.getItem("User Storage")
+
 function displayBlogList(){
     const blogList = document.querySelector(".blogList");
-    fetch("https://v2.api.noroff.dev/blog/posts/berate")
+    fetch(`https://v2.api.noroff.dev/blog/posts/${userId}`)
     .then(response => {
         if(!response.ok){
             throw new Error("404 page was not found!");
@@ -25,131 +28,27 @@ function displayBlogList(){
     })
 }
 
-displayBlogList();
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-async function fetchBlog(){
-    const displayData = document.getElementById(`postContainer`);
-    displayData.innerHTML = `<p>Loading page...</p>`;
-    const container = await fetch ("https://v2.api.noroff.dev/blog/posts/berate");
-    blogList = await container.json();
-    displayData.innerHTML = "";
-    renderBlog(blogList);
-}
-
-
-function renderBlog(blogs){
-    const displayData = document.getElementById(`postContainer`);
-    displayData.innerHTML = "";
-    blogs.forEach(post => {
-        if(blogs){
-            
+async function fetchPostById(postId) {
+    const apiUrl = `https://v2.api.noroff.dev/blog/posts/${postId}`;
+    const singlePostDiv = document.querySelector(".singlePost");
+
+    try {
+        const response = await fetch(apiUrl);
+        if (!response.ok) {
+            throw new Error(`Error fetching post: ${response.statusText}`);
         }
-    });
-}
+        const post = await response.json();
 
-
-
-function printOddNumbersUpToN(n){
-    for(let i = 0; i < n; i++){
-        if(i % 2===1){
-            console.log(i)
-        }
+        singlePostDiv.innerHTML = `
+            <h2>${post.title}</h2>
+            <p>By ${post.author.name}</p>
+            <img src="${post.media.url}" alt="${post.title}">
+            <p>${post.body}</p>
+            <a href="${post.url}">Link to Post</a>`;
+    } catch (error) {
+        console.error('Failed to fetch post:', error);
+        singlePostDiv.innerHTML = `<p>Failed to load post. Please try again later.</p>`;
     }
 }
+
+displayBlogList();
