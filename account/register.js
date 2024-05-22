@@ -5,39 +5,43 @@ function createUser() {
     const password = document.getElementById('password').value;
     const name = document.getElementById('name').value;
 
-    const postData = {
-        "name": name,
-        "email": email,
-        "password": password
+
+    const myHeaders = new Headers();
+    myHeaders.append("Content-Type", "application/json");
+
+    const raw = JSON.stringify({
+    "name": name,
+    "email": email,
+    "password": password
+    });
+
+    const requestOptions = {
+    method: "POST",
+    headers: myHeaders,
+    body: raw,
+    redirect: "follow"
     };
 
-    fetch('https://v2.api.noroff.dev/auth/register', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(postData)
+    fetch("https://v2.api.noroff.dev/auth/register", requestOptions)
+    .then(response =>{
+        if(!response.ok){
+            return response.json().then(errorResponse => {
+                throw new Error(errorResponse.errors[0].message);
+            });
+        };
+        return response.json
     })
-    .then(response => {
-        if (!response.ok) {
-            window.alert("Registration failed");
-        } else return response.json(); // Parse response JSON
-
+    .then((result) => {
+        window.alert("Registration was successful");
+        window.location.href = '/account/login.html';
     })
-    .then(json => {
-        console.log('Response JSON:', json);
-        window.alert("Registration successful");
-        // Redirect to the login page
-        window.location.href = '/account/login.html'; // Adjust path as needed
-    })
-    .catch(error => {
-        console.error('There was a problem with the fetch operation:', error);
-        alert('An error occurred during registration');
-    });
-}
+    .catch((error) => {
+        console.error(error);
+        window.alert("Oops, there was an error: " , error)
+    }
+    )}
 
 registrationForm.addEventListener('submit', function(event) {
     event.preventDefault();
     createUser();
 });
-
