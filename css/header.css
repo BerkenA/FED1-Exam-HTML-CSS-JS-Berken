@@ -34,6 +34,7 @@ body {
 #burgerMenu a {
     color: var(--secondary);
     text-decoration: none;
+    background-color: var(--quadratory);
 }
 
 header {
@@ -117,8 +118,10 @@ nav {
     }
 
     .desktopMenu a {
-        font-size: 1.5rem;
+        font-size: 2rem;
         background-color: var(--quadlupatory);
+        text-decoration: none;
+        color: var(--secondary);
     }
 
     .navbarIcons {

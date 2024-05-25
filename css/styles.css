@@ -32,6 +32,10 @@ li a {
     height: 200px;
 }
 
+.blogList a {
+    background-color: inherit;
+}
+
 .roboto-regular {
     font-weight: 400;
     font-style: normal;
