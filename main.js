@@ -1,6 +1,9 @@
+const getToken = window.localStorage.getItem("Bearer Token")
+const userId = window.localStorage.getItem("User Storage")
+
 function displayBlogList(){
     const blogList = document.querySelector(".blogList");
-    fetch("https://v2.api.noroff.dev/blog/posts/berate")
+    fetch(`https://v2.api.noroff.dev/blog/posts/${userId}`)
     .then(response => {
         if(!response.ok){
             throw new Error("404 page was not found!");
@@ -8,16 +11,18 @@ function displayBlogList(){
         return response.json();
     }).then(json => {
         const blogListData = json.data;
+        blogList.innerHTML = '';
         for(let listItem of blogListData){
-            console.log(listItem.title)
             blogList.innerHTML+=`
             <li>
                 <ul>
+                    <a href="/post/index.html?userId=${userId}&id=${listItem.id}
+                    ">
                     <li><img src="${listItem.media.url}"></li>
                     <li>${listItem.title}</li>
                     <li>${listItem.author.name}</li>
                     <li>${listItem.body}</li>
-                    <li><a href="${listItem.url}">Copy this link to share this blogpost</a></li>
+                    </a>
                 </ul>
             </li>`
             //Hrefen må være til single post pagen din og ikke listitem.url da den ikke leder noe sted.
@@ -26,130 +31,3 @@ function displayBlogList(){
 }
 
 displayBlogList();
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-async function fetchBlog(){
-    const displayData = document.getElementById(`postContainer`);
-    displayData.innerHTML = `<p>Loading page...</p>`;
-    const container = await fetch ("https://v2.api.noroff.dev/blog/posts/berate");
-    blogList = await container.json();
-    displayData.innerHTML = "";
-    renderBlog(blogList);
-}
-
-
-function renderBlog(blogs){
-    const displayData = document.getElementById(`postContainer`);
-    displayData.innerHTML = "";
-    blogs.forEach(post => {
-        if(blogs){
-            
-        }
-    });
-}
-
-
-
-function printOddNumbersUpToN(n){
-    for(let i = 0; i < n; i++){
-        if(i % 2===1){
-            console.log(i)
-        }
-    }
-}

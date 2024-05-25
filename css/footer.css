@@ -1,0 +1,105 @@
+:root {
+    --primary: #F8F8F8;
+    --secondary: #242424;
+    --tertiary: #6D6D6D;
+    --quadratory: #B0B0B0;
+    --quadlupatory: #EFEFEF;
+}
+
+* {
+    box-sizing: border-box;
+    font-family: "Roboto", sans-serif;
+}
+
+.section-bottom {
+    background-color: var(--secondary);
+}
+
+.section-bottom img {
+    width: 100%;
+}
+
+.bottom-footer {
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    padding: 0 1rem 2rem 0;
+    gap: 7rem;
+    background-color: var(--secondary);
+}
+
+.bottom-footer li {
+    color: var(--primary);
+    list-style-type: none;
+    margin-top: 1rem;
+    background-color: var(--secondary);
+}
+
+/* Medium (m) */
+@media (min-width: 744px) {
+    /* Your styles for the medium breakpoint here */
+    body {
+        width: 100vw;
+    }
+
+    li, a {
+        font-size: 1.625rem;
+    }
+
+    .section-bottom img {
+        width: 12rem;
+        height: 100%;
+    }
+
+    .menu-sections {
+        flex-direction: row;
+        justify-content: space-evenly;
+        padding-bottom: 3rem;
+    }
+
+    .menu-sections li {
+        margin-top: 3rem;
+    }
+}
+
+/* Extra Large (xl) */
+@media (min-width: 1280px) {
+    /* Your styles for the extra large breakpoint here */
+    body {
+        width: 100vw;
+    }
+
+    li, a {
+        font-size: 2rem;
+    }
+
+    .menu-sections {
+        flex-direction: row;
+        justify-content: space-evenly;
+        padding-bottom: 3rem;
+    }
+
+    .menu-sections li {
+        margin-top: 3rem;
+        font-size: 2rem;
+    }
+
+    .bottom-footer {
+        flex-direction: row;
+        gap: 3.375rem;
+        align-items: center;
+        padding-right: 3.375rem;
+        height: 10rem;
+        font-size: 2rem;
+    }
+
+    .bottom-footer a {
+        color: var(--primary);
+    }
+
+    .section-bottom img {
+        width: 35rem;
+        height: 10rem;
+        float: left;
+    }
+}

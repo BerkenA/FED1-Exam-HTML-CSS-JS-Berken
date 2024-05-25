@@ -1,40 +1,45 @@
-const bearerToken = window.localStorage.getItem("Bearer Token")
-const userName = window.localStorage.getItem("User Storage")
+const userId = window.localStorage.getItem("User Storage")
 
+document.addEventListener('DOMContentLoaded', () => {
+    // Function to extract query parameters from URL
+    function getQueryParam(param) {
+        const urlParams = new URLSearchParams(window.location.search);
+        return urlParams.get(param);
+    }
 
+    // Function to fetch and display a single post by ID
+    async function fetchPostById(postId) {
+        const apiUrl = `https://v2.api.noroff.dev/blog/posts/${userId}/${postId}`;
+        const singlePostDiv = document.querySelector(".singlePost");
 
-function fetchBlogPosts() {
-    fetch(`https://v2.api.noroff.dev/blog/posts/${userName}/`, {
-        method: "GET",
-        headers: {
-            "Authorization": `Bearer ${bearerToken}`
+        try {
+            const response = await fetch(apiUrl);
+            if (!response.ok) {
+                throw new Error(`Error fetching post: ${response.statusText}`);
+            }
+            const result = await response.json();
+            const post = result.data;
+            
+
+            singlePostDiv.innerHTML = `
+                <h2>${post.title}</h2>
+                <p>By ${post.author.name}</p>
+                <img src="${post.media.url}" alt="${post.media.alt || post.title}">
+                <p>${post.body}</p>
+                <div>Tags: ${post.tags.join(', ')}</div>
+                <a href="${post.url}">Link to Post</a>
+            `;
+        } catch (error) {
+            console.error('Failed to fetch post:', error);
+            singlePostDiv.innerHTML = `<p>Failed to load post. Please try again later.</p>`;
         }
-    })
-    .then(response => {
-        if (!response.ok) {
-            throw new Error("Failed to fetch blog posts");
-        }
-        return response.json();
-    })
-    .then(data => {
-        if (!Array.isArray(data.data)) {
-            throw new Error("Blog posts data is not an array");
-        }
+    }
 
-        // Attach event listeners to edit and delete buttons
-        const editButtons = document.querySelectorAll(".editBtn");
-        editButtons.forEach(button => {
-            button.addEventListener("click", handleEdit);
-        });
-
-        const deleteButtons = document.querySelectorAll(".deleteBtn");
-        deleteButtons.forEach(button => {
-            button.addEventListener("click", handleDelete);
-        });
-    })
-    .catch(error => {
-        console.error("Error fetching blog posts:", error.message);
-    });
-}
-
-fetchBlogPosts();
+    // Get the post ID from the URL and fetch the post
+    const postId = getQueryParam('id');
+    if (postId) {
+        fetchPostById(postId);
+    } else {
+        document.querySelector('.singlePost').innerHTML = `<p>No post ID provided in URL.</p>`;
+    }
+});

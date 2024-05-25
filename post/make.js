@@ -1,44 +1,69 @@
-const postForm = document.querySelector(".createBlogForm");
-postForm.addEventListener("submit", submitBlogPost);
-const bearerToken = window.localStorage.getItem("Bearer Token");
-const userName = window.localStorage.getItem("User Storage");
+const userName = window.localStorage.getItem("User Storage")
+const bearerToken = window.localStorage.getItem("Bearer Token")
 
-
-function submitBlogPost(event) {
-    event.preventDefault();
-    const formData = new FormData(event.target);
-    if (!formData.get("title") || !formData.get("body") || !formData.get("tags") || !formData.get("image")) {
-        alert("Please fill out all fields");
-        return;
-    }
-    
-    fetch(`https://v2.api.noroff.dev/blog/posts/${userName}`, {
-        method: "POST",
-        headers: {
-            "Authorization": `Bearer ` + bearerToken,
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify({
-            "title": formData.get("title"),
-            "body": formData.get("body"),
-            "tags": [formData.get("tags")],
-            "media": {
-                "url": formData.get("image"),
-                "alt": "test"
-            }
-        })
-    })
+function displayBlogList(){
+    const blogList = document.querySelector(".blogList");
+    fetch("https://v2.api.noroff.dev/blog/posts/berate")
     .then(response => {
-        if (response.ok) {
-            alert("Post created successfully!");
-            window.location.href = `index.html`
-        } else {
-            alert("Failed to create post. Please try again.");
+        if(!response.ok){
+            throw new Error("404 page was not found!");
         }
+        return response.json();
+    }).then(json => {
+        const blogListData = json.data;
+        for(let listItem of blogListData){
+            console.log(listItem.title)
+            blogList.innerHTML+=`
+            <li>
+                <div class="postCard">
+                    <img src="${listItem.media.url}">
+                    <span>${listItem.title}</span>
+                    <span>${listItem.author.name}</span>
+                    <span>${listItem.body}</span>
+                    <a href="/post/edit.html?ID=${listItem.id}">edit blog post</a>
+                    <button onclick="handleDelete('${listItem.id}')" class="deleteButton" data-postId="${listItem.id}">Delete</button>
+                </div>
+            </li>`
+        }
+        
+
     })
-    .catch(error => {
-        alert("An error occurred while creating the post. Please try again later.");
-        console.error("Error creating blog post:", error);
-    });
 }
 
+
+displayBlogList();
+
+function handleDelete(postId) {
+    const confirmDelete = confirm("Are you sure you want to delete this post?");
+    if (confirmDelete) {
+        fetch(`https://v2.api.noroff.dev/blog/posts/${userName}/${postId}`, {
+            method: "DELETE",
+            headers: {
+                "Authorization": `Bearer ${bearerToken}`,
+                "Content-Type": "application/json" // Add content type header
+            },
+            body: JSON.stringify({}) // Send an empty body
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error("Failed to delete post");
+            }
+            // Find the parent <li> element and remove it
+            const listItem = document.querySelector(`button[data-postId="${postId}"]`).closest('li');
+            if (listItem) {
+                listItem.remove();
+                alert("Post deleted successfully");
+            } else {
+                console.error("Error deleting post: Try again later");
+            }
+        })
+        .catch(error => {
+            console.error("Error deleting post:", error.message);
+        });
+    }
+            // Attach event listeners for delete buttons after blog list is loaded
+            const deleteButtons = document.querySelectorAll('.deleteButton');
+            deleteButtons.forEach(button => {
+                button.addEventListener('click', handleDelete);
+            });
+}

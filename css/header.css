@@ -1,0 +1,135 @@
+:root {
+    --primary: #F8F8F8;
+    --secondary: #242424;
+    --tertiary: #6D6D6D;
+    --quadratory: #B0B0B0;
+    --quadlupatory: #EFEFEF;
+}
+
+* {
+    box-sizing: border-box;
+    font-family: "Roboto", sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    width: 100vw;
+}
+
+#burgerMenu {
+    width: 100vw;
+    position: absolute;
+    background-color: var(--quadratory);
+    top: 6.438rem;
+    display: none;
+    padding-left: 1rem;
+}
+
+#burgerMenu li {
+    padding: 1rem 0;
+    list-style-type: none;
+}
+
+#burgerMenu a {
+    color: var(--secondary);
+    text-decoration: none;
+    background-color: var(--quadratory);
+}
+
+header {
+    position: sticky;
+    top: 0;
+    width: 100%;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    background-color: var(--quadlupatory)
+}
+
+.logoScience img {
+    height: 6rem;
+}
+
+.desktopMenu {
+    display: none;
+}
+
+.navbarIcons {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+    padding-right: 1rem;
+    background-color: var(--quadrato);
+}
+
+/* Medium (m) */
+@media (min-width: 744px) {
+    body {
+        width: 100vw;
+    }
+
+    .navbarIcons {
+        display: flex;
+        gap: 4rem;
+    }
+
+    .logoScience img {
+        height: 9rem;
+    }
+}
+
+/* Extra Large (xl) */
+@media (min-width: 1280px) {
+    body {
+        width: 100vw;
+    }
+
+    header {
+        display: flex;
+        width: 100vw;
+    }
+    
+    nav {
+        display: flex;
+        justify-content: space-between;
+        gap: 4rem;
+    }
+
+    a {
+        text-decoration: none;
+        font-family: "Roboto", sans-serif;
+    }
+
+    .menuHide {
+        display: none;
+    }
+
+    .desktopMenu {
+        display: flex;
+        gap: 3.5rem;
+        font-weight: bold;
+        list-style-type: none;
+        justify-content: center;
+    }
+
+    .desktopMenu a {
+        font-size: 2rem;
+        background-color: var(--quadlupatory);
+        text-decoration: none;
+        color: var(--secondary);
+    }
+
+    .navbarIcons {
+        margin: 1rem 2rem 0 0;
+    }
+
+    .menuHide i {
+        display: none;
+        margin-top: 1rem;
+    }
+}
