@@ -1,12 +1,15 @@
+:root {
+    --primary: #F8F8F8;
+    --secondary: #242424;
+    --tertiary: #6D6D6D;
+    --quadratory: #B0B0B0;
+    --quadlupatory: #EFEFEF;
+}
+
 * {
     font-family: "Roboto", sans-serif;
     box-sizing: border-box;
-    background-color: blanchedalmond;
-}
-
-img {
-    width: 200px;
-    height: 200px;
+    background-color: var(--primary);
 }
 
 li {
@@ -21,6 +24,12 @@ li a {
 
 .blogList {
     display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.blogList img {
+    height: 200px;
 }
 
 .roboto-regular {
