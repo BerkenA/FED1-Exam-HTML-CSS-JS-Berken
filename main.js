@@ -11,16 +11,17 @@ function displayBlogList(){
         return response.json();
     }).then(json => {
         const blogListData = json.data;
+        blogList.innerHTML = '';
         for(let listItem of blogListData){
             blogList.innerHTML+=`
             <li>
                 <ul>
-                    <a href="/post/index.html">
+                    <a href="/post/index.html?userId=${userId}&id=${listItem.id}
+                    ">
                     <li><img src="${listItem.media.url}"></li>
                     <li>${listItem.title}</li>
                     <li>${listItem.author.name}</li>
                     <li>${listItem.body}</li>
-                    <li>Copy this link to share this blogpost</li>
                     </a>
                 </ul>
             </li>`
