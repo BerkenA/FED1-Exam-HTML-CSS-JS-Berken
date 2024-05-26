@@ -4,6 +4,8 @@ let carrrousellIndex = 0;
 const leftButton = document.getElementById("carrousellLeft")
 const rightButton = document.getElementById("carrousellRight")
 let blogListData;
+let caroussellListData;
+const carrousellImageDiv = document.querySelector(".carrousellImage");
 
 function fetchBlogList(){
     fetch(`https://v2.api.noroff.dev/blog/posts/${userId}`)
@@ -14,9 +16,9 @@ function fetchBlogList(){
         return response.json();
     }).then(json => {
         blogListData = json.data;
+        carrousellPictures = blogListData.slice(0,Math.min(blogListData.length, 3));
         displayCaroussell();
         displayBlogList();
-            //Hrefen må være til single post pagen din og ikke listitem.url da den ikke leder noe sted.
         }
     )};
 
@@ -39,14 +41,12 @@ function displayBlogList(){
 }}
 
 function displayCaroussell(){
-    const carrousellPictures = blogListData.slice(0,3);
-    const carrousellImageDiv = document.querySelector(".carrousellImage");
     console.log(carrrousellIndex);
     carrousellImageDiv.innerHTML =`<img src="${carrousellPictures[carrrousellIndex].media.url}">`
 }
 
 function showNextPicture (){
-    if(carrrousellIndex >= 2){
+    if(carrrousellIndex >= Math.min(carrousellPictures, 2)){
         carrrousellIndex = 0;
     } else {
         carrrousellIndex++
@@ -63,9 +63,12 @@ function showPreviousPicture (){
     displayCaroussell();
 }
 
+function navigateToBlogPost(){
+    window.location =`/post/index.html?userId=${userId}&id=${blogListData[carrrousellIndex].id}`
+}
+
 leftButton.addEventListener('click',showPreviousPicture);
 rightButton.addEventListener('click',showNextPicture);
-
-
+carrousellImageDiv.addEventListener('click',navigateToBlogPost)
 
 fetchBlogList();
