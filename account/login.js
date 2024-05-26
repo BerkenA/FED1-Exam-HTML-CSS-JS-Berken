@@ -35,7 +35,7 @@ function fetchLogin() {
         const userToken = fetchResult.name
         window.localStorage.setItem("Bearer Token", bearerToken)
         window.localStorage.setItem("User Storage", userToken)
-        window.location.href=`/post/index.html`
+        window.location.href=`/post/make.html`
     })
     .catch(error => {
         console.error('There was a problem with the fetch operation:', error);

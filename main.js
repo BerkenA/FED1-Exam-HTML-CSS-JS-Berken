@@ -20,7 +20,13 @@ function fetchBlogList(){
         displayCaroussell();
         displayBlogList();
         }
-    )};
+    ).catch((error)=>{
+        if (!getToken || !userId) {
+            window.alert("You must be logged in to view this page.");
+            window.location.href = '/account/login.html';
+        }
+    })
+};
 
 function displayBlogList(){
     const blogList = document.querySelector(".blogList");
