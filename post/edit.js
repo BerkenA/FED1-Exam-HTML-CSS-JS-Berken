@@ -72,7 +72,7 @@ const bearerToken = window.localStorage.getItem("Bearer Token");
             } else {
                 alert("Post updated successfully");
                 // Optionally, redirect to another page after successful update
-                window.location.href = `index.html`
+                window.location.href = `/post/make.html`
             }
         })
         .catch(error => {

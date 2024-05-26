@@ -3,7 +3,7 @@ const bearerToken = window.localStorage.getItem("Bearer Token")
 
 function displayBlogList(){
     const blogList = document.querySelector(".blogList");
-    fetch("https://v2.api.noroff.dev/blog/posts/berate")
+    fetch(`https://v2.api.noroff.dev/blog/posts/${userName}`)
     .then(response => {
         if(!response.ok){
             throw new Error("404 page was not found!");
@@ -40,7 +40,7 @@ function handleDelete(postId) {
             method: "DELETE",
             headers: {
                 "Authorization": `Bearer ${bearerToken}`,
-                "Content-Type": "application/json" // Add content type header
+                "Content-Type": "application/json"
             },
             body: JSON.stringify({}) // Send an empty body
         })

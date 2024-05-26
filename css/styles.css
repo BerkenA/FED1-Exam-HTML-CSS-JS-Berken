@@ -22,6 +22,12 @@ li a {
     text-decoration: none;
 }
 
+.carrousellSection {
+    display: flex;
+}
+
+
+
 .blogList {
     display: flex;
     flex-direction: column;
