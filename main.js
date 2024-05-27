@@ -21,10 +21,7 @@ function fetchBlogList(){
         displayBlogList();
         }
     ).catch((error)=>{
-        if (!getToken || !userId) {
-            window.alert("You must be logged in to view this page.");
-            window.location.href = '/account/login.html';
-        }
+        alert('Oops, something went wrong')
     })
 };
 
@@ -34,25 +31,22 @@ function displayBlogList(){
         for(let listItem of blogListData){
             blogList.innerHTML+=`
             <li>
-                <ul>
-                    <a href="/post/index.html?userId=${userId}&id=${listItem.id}
-                    ">
-                    <li><img src="${listItem.media.url}"></li>
-                    <li>${listItem.title}</li>
-                    <li>${listItem.author.name}</li>
-                    <li>${listItem.body}</li>
-                    </a>
-                </ul>
+                <a href="/post/index.html?userId=${userId}&id=${listItem.id}
+                ">
+                <li><img src="${listItem.media.url}"></li>
+                <li><h2>${listItem.title}</h2></li>
+                <li><h4>Written by: ${listItem.author.name}</h4></li>
+                <li>${listItem.body}</li>
+                </a>
             </li>`
 }}
 
 function displayCaroussell(){
-    console.log(carrrousellIndex);
     carrousellImageDiv.innerHTML =`<img src="${carrousellPictures[carrrousellIndex].media.url}">`
 }
 
 function showNextPicture (){
-    if(carrrousellIndex >= Math.min(carrousellPictures, 2)){
+    if(carrrousellIndex >= 2){
         carrrousellIndex = 0;
     } else {
         carrrousellIndex++

@@ -1,6 +1,11 @@
 const userName = window.localStorage.getItem("User Storage")
 const bearerToken = window.localStorage.getItem("Bearer Token")
 
+if (!userName || !bearerToken) {
+    window.alert('You must be logged in to view this page');
+    window.location.href = '/account/login.html'; // Stop further execution of the function
+}
+
 function displayBlogList(){
     const blogList = document.querySelector(".blogList");
     fetch(`https://v2.api.noroff.dev/blog/posts/${userName}`)
@@ -12,7 +17,6 @@ function displayBlogList(){
     }).then(json => {
         const blogListData = json.data;
         for(let listItem of blogListData){
-            console.log(listItem.title)
             blogList.innerHTML+=`
             <li>
                 <div class="postCard">
@@ -22,11 +26,11 @@ function displayBlogList(){
                     <span>${listItem.body}</span>
                     <a href="/post/edit.html?ID=${listItem.id}">edit blog post</a>
                     <button onclick="handleDelete('${listItem.id}')" class="deleteButton" data-postId="${listItem.id}">Delete</button>
+                    <a href="/post/index.html?userId=${userName}&id=${listItem.id}
+                    ">Go to post</a>
                 </div>
             </li>`
         }
-        
-
     })
 }
 
