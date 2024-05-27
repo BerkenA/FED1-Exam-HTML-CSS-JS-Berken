@@ -29,6 +29,7 @@ function displayBlogList(){
     const blogList = document.querySelector(".blogList");
     blogList.innerHTML = '';
         for(let listItem of blogListData){
+            const truncatedBody = listItem.body.length > 100 ? listItem.body.substring(0, 200) + '...' : listItem.body;
             blogList.innerHTML+=`
             <li>
                 <a href="/post/index.html?userId=${userId}&id=${listItem.id}
@@ -36,7 +37,7 @@ function displayBlogList(){
                 <li><img src="${listItem.media.url}"></li>
                 <li><h2>${listItem.title}</h2></li>
                 <li><h4>Written by: ${listItem.author.name}</h4></li>
-                <li>${listItem.body}</li>
+                <li>${truncatedBody}</li>
                 </a>
             </li>`
 }}

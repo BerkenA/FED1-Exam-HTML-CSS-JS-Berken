@@ -84,6 +84,11 @@
         font-size: 2rem;
     }
 
+    .createPost{
+        font-size: 2rem;
+        font-weight: bold;
+    }
+
     .bottom-footer {
         flex-direction: row;
         gap: 3.375rem;
@@ -91,6 +96,7 @@
         padding-right: 3.375rem;
         height: 10rem;
         font-size: 2rem;
+        margin: 0;
     }
 
     .bottom-footer a {

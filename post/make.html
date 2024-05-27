@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Gamer's Archives</title>
-    <link rel="stylesheet" href="/css/make.css">
+    <link rel="stylesheet" type="text/css" href="/css/styles.css">
     <link rel="stylesheet" type="text/css" href="/css/header.css">
     <link rel="stylesheet" type="text/css" href="/css/footer.css">
     <script src="/post/make.js" defer></script>
@@ -25,6 +25,9 @@
                 <ul>
                     <li>
                         <a href="/index.html" aria-label="click here to go home"> Home </a>
+                    </li>
+                    <li>
+                        <a href="/account/login.html" aria-label="click here to login"> Login </a>
                     </li>
                 </ul>
             </div>
@@ -54,16 +57,18 @@
                         <i class="fa-solid fa-right-to-bracket fa-2xl" style="color: #242424;"></i>
                     </a>
                 </div>
-                <div class="menuHide">
-                    <a href="" aria-label="click here to open the menu">
-                        <i class="fa-solid fa-bars fa-2xl" style="color: #242424"></i>
-                    </a>
+                <div class="menuHide" id="burgerOpen" aria-label="click here to open the menu">
+                    <i class="fa-solid fa-bars fa-2xl" style="color: #242424;" id="burgerOpenIcon"></i>
+                    <i class="fa-solid fa-xmark fa-2xl" id="burgerCloseIcon" style="color: #242424;"></i>
                 </div>
             </div>
         </nav>
     </header>
     <main>
         <section>
+            <div class="centerThis">
+                <h1>Your admin page</h1>
+            </div>
             <ul class="blogList">
 
             </ul>

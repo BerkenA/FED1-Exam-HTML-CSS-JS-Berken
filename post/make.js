@@ -17,19 +17,22 @@ function displayBlogList(){
     }).then(json => {
         const blogListData = json.data;
         for(let listItem of blogListData){
+            const truncatedBody = listItem.body.length > 100 ? listItem.body.substring(0, 200) + '...' : listItem.body;
             blogList.innerHTML+=`
-            <li>
-                <div class="postCard">
-                    <img src="${listItem.media.url}">
-                    <span>${listItem.title}</span>
-                    <span>${listItem.author.name}</span>
-                    <span>${listItem.body}</span>
-                    <a href="/post/edit.html?ID=${listItem.id}">edit blog post</a>
-                    <button onclick="handleDelete('${listItem.id}')" class="deleteButton" data-postId="${listItem.id}">Delete</button>
-                    <a href="/post/index.html?userId=${userName}&id=${listItem.id}
-                    ">Go to post</a>
-                </div>
-            </li>`
+            <ul>
+                <li class="postCard">
+                    <li><img src="${listItem.media.url}"></li>
+                    <li><h2>${listItem.title}</h2></li>
+                    <li><h4>Written by: ${listItem.author.name}</h4></li>
+                    <li>${truncatedBody}</li>
+                    <li class="seperateMe">
+                    <li><a href="/post/edit.html?ID=${listItem.id}">Edit blog post</a></li>
+                    <li><button onclick="handleDelete('${listItem.id}')" class="deleteButton" data-postId="${listItem.id}">Delete</button></li>
+                    <li><a href="/post/index.html?userId=${userName}&id=${listItem.id}
+                    ">Go to post</a></li>
+                    </li>
+                </li>
+            </ul>`
         }
     })
 }
