@@ -76,6 +76,10 @@ nav {
     body {
         width: 100vw;
     }
+    
+    nav{
+        height: 8rem;
+    }
 
     .navbarIcons {
         display: flex;
@@ -83,7 +87,7 @@ nav {
     }
 
     .logoScience img {
-        height: 9rem;
+        height: 8rem;
     }
 
     #burgerMenu{

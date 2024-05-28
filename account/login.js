@@ -5,7 +5,6 @@ const registBtn = document.getElementById("registerButton")
 const getToken = window.localStorage.getItem("Bearer Token")
 const userId = window.localStorage.getItem("User Storage")
 
-
 // Function for logging in
 function fetchLogin() {
     let passwordValue = password.value;
@@ -56,5 +55,6 @@ submitBtn.onclick = function() {
 };
 
 registBtn.onclick = function(){
-    window.location.href =`/account/register.html`
+     window.location.href =`/account/register.html`
+
 }

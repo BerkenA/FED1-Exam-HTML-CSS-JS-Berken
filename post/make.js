@@ -21,7 +21,7 @@ function displayBlogList(){
             blogList.innerHTML+=`
             <ul>
                 <li class="postCard">
-                    <li><img src="${listItem.media.url}"></li>
+                    <li><img src="${listItem.media.url}" alt=""></li>
                     <li><h2>${listItem.title}</h2></li>
                     <li><h4>Written by: ${listItem.author.name}</h4></li>
                     <li>${truncatedBody}</li>
@@ -60,6 +60,7 @@ function handleDelete(postId) {
             if (listItem) {
                 listItem.remove();
                 alert("Post deleted successfully");
+                window.location.href ='/post/make.html'
             } else {
                 console.error("Error deleting post: Try again later");
             }

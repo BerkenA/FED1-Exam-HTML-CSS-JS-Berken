@@ -94,7 +94,7 @@
         gap: 3.375rem;
         align-items: center;
         padding-right: 3.375rem;
-        height: 10rem;
+        height: 8rem;
         font-size: 2rem;
         margin: 0;
     }
@@ -105,7 +105,7 @@
 
     .section-bottom img {
         width: 35rem;
-        height: 10rem;
+        height: 8rem;
         float: left;
     }
 }

@@ -34,7 +34,7 @@ function displayBlogList(){
             <li>
                 <a href="/post/index.html?userId=${userId}&id=${listItem.id}
                 ">
-                <li><img src="${listItem.media.url}"></li>
+                <li><img src="${listItem.media.url}" alt="${listItem.media.alt}"></li>
                 <li><h2>${listItem.title}</h2></li>
                 <li><h4>Written by: ${listItem.author.name}</h4></li>
                 <li>${truncatedBody}</li>

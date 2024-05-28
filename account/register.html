@@ -9,6 +9,7 @@
     <title>Register</title>
     <link rel="stylesheet" type="text/css" href="/css/header.css">
     <link rel="stylesheet" type="text/css" href="/css/footer.css">
+    <link rel="stylesheet" type="text/css" href="/css/register.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
@@ -61,9 +62,12 @@
         </nav>
     </header>
     <main>
-        <section>
-            <h1>User Registration</h1>
+        <section class="centerThis">
+            <div class="centerPicture">
+                <img src="/assets/Tech-tips-daily-logo.jpg" alt="tech tips daily logo">
+            </div>
             <form id="registrationForm">
+                <h1>User Registration</h1>
                 <label for="name">User name:</label><br>
                 <input type="text" id="name" name="name"><br>
                 <label for="email">Email:</label><br>
@@ -72,7 +76,7 @@
                 <input type="password" id="password" name="password"><br>
                 <label for="password">Confirm password:</label><br>
                 <input type="password" id="confirmPassword" name="password"><br>
-                <button type="submit">Register</button>
+                <button type="submit" id="registerButton">Register</button>
             </form>
         </section>
     </main>
