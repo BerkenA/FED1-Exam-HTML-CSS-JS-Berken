@@ -56,19 +56,13 @@ body {
 
     #submit {
         font-size: 1rem;
+        width: 10rem;
     }
     
     #registerButton {
         font-size: 1rem;
         height: 2rem;
-    }
-}
-
-/* Extra Large (xl) */
-@media (min-width: 1280px) {
-    /* Your styles for the extra large breakpoint here */
-    body {
-        width: 100vw;
+        width: 9.3rem;
     }
 
     #email {
@@ -77,6 +71,14 @@ body {
 
     #password {
         width: 20rem;
+    }
+}
+
+/* Extra Large (xl) */
+@media (min-width: 1280px) {
+    /* Your styles for the extra large breakpoint here */
+    body {
+        width: 100vw;
     }
 
     #submit {
