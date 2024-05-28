@@ -1,3 +1,5 @@
+const logOutBtn = document.getElementById("logOut")
+const logOutDesktopBtn = document.getElementById("logOutDesktop")
 const titleField = document.getElementById("title")
 const bodyField = document.getElementById("body")
 const imageField = document.getElementById("image")
@@ -96,31 +98,17 @@ function handleSubmit(event) {
 // Add event listener to the form for the submit event
 document.querySelector('.createBlogForm').addEventListener('submit', handleSubmit);
 
-    document.addEventListener("DOMContentLoaded", function() {
-        // Call fetchBlogPosts function here
-        fetchBlogPosts();
-    });
-    
-    // function handleDelete(event) {
-    //     const postId = event.target.dataset.postId;
-    //     const confirmDelete = confirm("Are you sure you want to delete this post?");
-    //     if (confirmDelete) {
-    //         fetch(`https://v2.api.noroff.dev/blog/posts/berate/${postId}`, {
-    //             method: "DELETE",
-    //             headers: {
-    //                 "Authorization": `Bearer ${bearerToken}`
-    //             }
-    //         })
-    //         .then(response => {
-    //             if (!response.ok) {
-    //                 throw new Error("Failed to delete post");
-    //             }
-    //             event.target.parentElement.remove();
-    //             alert("Post deleted successfully");
-    //         })
-    //         .catch(error => {
-    //             console.error("Error deleting post:", error.message);
-    //         });
-    //     }
-    // }
-    
+document.addEventListener("DOMContentLoaded", function() {
+    // Call fetchBlogPosts function here
+    fetchBlogPosts();
+});
+
+logOutBtn.addEventListener("click", logout) 
+logOutDesktopBtn.addEventListener("click", logout) 
+
+function logout(){
+    window.localStorage.removeItem('User Storage')
+    window.localStorage.removeItem('Bearer Token');
+    alert("You have been logged out"); 
+    window.location.href = '/account/login.html';
+}

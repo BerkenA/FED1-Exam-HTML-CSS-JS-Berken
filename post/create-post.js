@@ -1,7 +1,10 @@
+const logOutBtn = document.getElementById("logOut")
+const logOutDesktopBtn = document.getElementById("logOutDesktop")
 const postForm = document.querySelector(".createBlogForm");
 postForm.addEventListener("submit", submitBlogPost);
 const bearerToken = window.localStorage.getItem("Bearer Token");
 const userName = window.localStorage.getItem("User Storage");
+
 
 if (!userName || !bearerToken) {
     window.alert('You must be logged in to view this page');
@@ -45,5 +48,15 @@ function submitBlogPost(event) {
         alert("An error occurred while creating the post. Please try again later.");
         console.error("Error creating blog post:", error);
     });
+}
+
+logOutBtn.addEventListener("click", logout) 
+logOutDesktopBtn.addEventListener("click", logout) 
+
+function logout(){
+    window.localStorage.removeItem('User Storage')
+    window.localStorage.removeItem('Bearer Token');
+    alert("You have been logged out"); 
+    window.location.href = '/account/login.html';
 }
 

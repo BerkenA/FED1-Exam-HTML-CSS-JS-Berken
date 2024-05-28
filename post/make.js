@@ -1,3 +1,5 @@
+const logOutBtn = document.getElementById("logOut")
+const logOutDesktopBtn = document.getElementById("logOutDesktop")
 const userName = window.localStorage.getItem("User Storage")
 const bearerToken = window.localStorage.getItem("Bearer Token")
 
@@ -75,3 +77,14 @@ function handleDelete(postId) {
                 button.addEventListener('click', handleDelete);
             });
 }
+
+logOutBtn.addEventListener("click", logout) 
+logOutDesktopBtn.addEventListener("click", logout) 
+
+function logout(){
+    window.localStorage.removeItem('User Storage')
+    window.localStorage.removeItem('Bearer Token');
+    alert("You have been logged out"); 
+    window.location.href = '/account/login.html';
+}
+

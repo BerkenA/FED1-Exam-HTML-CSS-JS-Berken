@@ -42,10 +42,6 @@
         width: 100vw;
     }
 
-    /* li, a {
-        font-size: 1.625rem;
-    } */
-
     .section-bottom img {
         width: 12rem;
         height: 100%;
@@ -60,6 +56,10 @@
     .menu-sections li {
         margin-top: 3rem;
     }
+
+    .bottom-footer {
+        margin: 0 1rem 2rem 0;
+    }
 }
 
 /* Extra Large (xl) */
@@ -68,10 +68,6 @@
     body {
         width: 100vw;
     }
-
-    /* li, a {
-        font-size: 2rem;
-    } */
 
     .menu-sections {
         flex-direction: row;

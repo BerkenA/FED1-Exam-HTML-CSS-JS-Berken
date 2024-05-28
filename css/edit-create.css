@@ -51,6 +51,24 @@ label {
     margin-bottom: 1rem;
 }
 
+/* Medium (xl) */
+@media (min-width: 744px) {
+    /* Your styles for the medium breakpoint here */
+    input {
+        font-size: 1.3rem;
+    }
+
+    textarea {
+        font-size: 1.3rem;
+    }
+    
+    .blogPost {
+        font-size: 1.5rem;
+        margin: 2rem 0 2rem 0;
+    }
+}
+
+
 /* Extra Large (xl) */
 @media (min-width: 1280px) {
     /* Your styles for the extra large breakpoint here */
@@ -60,6 +78,11 @@ label {
 
     input {
         height: 3rem;
+        font-size: 1.5rem;
+    }
+
+    textarea {
+        font-size: 1.5rem;
     }
 
     label {
@@ -69,5 +92,6 @@ label {
     .blogPost {
         font-size: 2rem;
         height: 3rem;
+        margin: 3rem 0 3rem 0;
     }
 }
