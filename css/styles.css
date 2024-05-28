@@ -49,7 +49,7 @@ li a {
 .carrousellSection {
     display: flex;
     align-items: center;
-    margin-top: 1rem;
+    margin-top: 3rem;
 }
 
 .seperateMe{
@@ -101,6 +101,31 @@ li a {
 
 .blogList a {
     background-color: inherit;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+}
+
+#prevPage {
+    width: 5rem;
+    margin: 2rem;
+    background-color: var(--secondary);
+    color: var(--primary);
+    font-size: 1rem;
+}
+
+#pageIndicator {
+    margin-top: 2rem;
+}
+
+#nextPage {
+    width: 5rem;
+    margin: 2rem;
+    background-color: var(--secondary);
+    color: var(--primary);
+    font-size: 1rem;
 }
 
 .deleteButton{
