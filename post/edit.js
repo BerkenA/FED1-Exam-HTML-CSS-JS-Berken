@@ -47,9 +47,7 @@ if (!userId || !bearerToken) {
     function handleEdit() {
         const stringParam = window.location.search;
         const urlParam = new URLSearchParams(stringParam);
-        const postId = urlParam.get("ID");
-        
-        // Rename variables to avoid conflict
+        const postId = urlParam.get("ID");t
         const editedTitle = titleField.value;
         const editedBody = bodyField.value;
         const editedImage = imageField.value;
@@ -76,7 +74,6 @@ if (!userId || !bearerToken) {
                 throw new Error("Failed to update the post");
             } else {
                 alert("Post updated successfully");
-                // Optionally, redirect to another page after successful update
                 window.location.href = `/post/make.html`
             }
         })
@@ -89,17 +86,13 @@ if (!userId || !bearerToken) {
 
 // Function to handle form submission
 function handleSubmit(event) {
-    event.preventDefault(); // Prevents the default form submission behavior
-
-    // Call the handleEdit function to update the blog post
+    event.preventDefault();
     handleEdit();
 }
 
-// Add event listener to the form for the submit event
 document.querySelector('.createBlogForm').addEventListener('submit', handleSubmit);
 
 document.addEventListener("DOMContentLoaded", function() {
-    // Call fetchBlogPosts function here
     fetchBlogPosts();
 });
 

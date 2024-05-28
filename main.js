@@ -8,7 +8,7 @@ let caroussellListData;
 const carrousellImageDiv = document.querySelector(".carrousellImage");
 
 function fetchBlogList(){
-    fetch(`https://v2.api.noroff.dev/blog/posts/${userId}`)
+    fetch(`https://v2.api.noroff.dev/blog/posts/berate`)
     .then(response => {
         if(!response.ok){
             throw new Error("404 page was not found!");
@@ -32,7 +32,7 @@ function displayBlogList(){
             const truncatedBody = listItem.body.length > 100 ? listItem.body.substring(0, 200) + '...' : listItem.body;
             blogList.innerHTML+=`
             <li>
-                <a href="/post/index.html?userId=${userId}&id=${listItem.id}
+                <a href="/post/index.html?id=${listItem.id}
                 ">
                 <li><img src="${listItem.media.url}" alt="${listItem.media.alt}"></li>
                 <li><h2>${listItem.title}</h2></li>
