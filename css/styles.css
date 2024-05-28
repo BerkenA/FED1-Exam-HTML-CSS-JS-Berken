@@ -36,6 +36,11 @@ li a {
     margin-top: 3rem;
 }
 
+.createPost a {
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
 .carrousellSection {
     display: flex;
     align-items: center;
@@ -121,6 +126,11 @@ li a {
         font-size: 1.5rem;
     }
 
+    .createPost a {
+        font-weight: bold;
+        font-size: 1.5rem;
+    }
+
     .carrousellSection img {
         width: 79vw;
         height: 18.75rem;
@@ -155,7 +165,14 @@ li a {
     /* Your styles for the extra large breakpoint here */
     body {
         width: 100vw;
+        font-size: 1.5rem;
     }
+
+    .createPost a {
+        font-weight: bold;
+        font-size: 2rem;
+    }
+
     .carrousellSection {
         justify-content: center;
     }

@@ -35,11 +35,15 @@ body {
 }
 
 #submit {
-    width: 5rem;
+    width: 4rem;
+    background: var(--secondary);
+    color: var(--primary);
 }
 
 #registerButton {
-    width: 4rem;
+    width: 5rem;
+    background: var(--secondary);
+    color: var(--primary);
 }
 
 /* Medium (m) */

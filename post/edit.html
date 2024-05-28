@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="/css/make.css">
     <link rel="stylesheet" type="text/css" href="/css/header.css">
     <link rel="stylesheet" type="text/css" href="/css/footer.css">
+    <link rel="stylesheet" type="text/css" href="/css/edit-create.css">
     <script src="/post/edit.js" defer></script>
     <script src="/account/logout.js" defer></script>
     <script src="/burger-menu.js" defer></script>
@@ -62,28 +63,31 @@
         </nav>
     </header>
     <section>
-        <h1>
-            Edit blog post
-        </h1>
-        <form class="createBlogForm">
-            <label for="text">
-                Title of your blogpost:
+        <div class="centerForm">
+            <h2>
+                Edit blog post
+            </h2>
+            <form class="createBlogForm">
+                <label for="text">
+                    Title of your blogpost:
+                </label>
                 <input placeholder="Type your title here" type="text" id="title" name="title" />
-            </label>
-            <label for="text">
-                Body:
-                <input type="text" placeholder="Type your blog here" id="body" name="body" />
-            </label>
-            <label for="text">
-                Tags:
-                <input type="text" placeholder="Type your tags here" id="tags" name="tags" />
-            </label>
-            <label for="image">
-                Submit image:
+                <label for="text">
+                    Body:
+                </label>
+                <textarea type="text" placeholder="Type your blog here" id="body" name="body" rows="20"
+                    maxlength="2000"></textarea>
+                <label for="text">
+                    Tags:
+                </label>
+                <input type="text" placeholder="Type your tags here" id="tags" name="tags" maxlength="24" />
+                <label for="image">
+                    Submit image:
+                </label>
                 <input type="text" placeholder="Submit your image here" id="image" name="image" />
-            </label>
-            <button class="blogPost" type="submit" id="submitButton">Edit blog post</button>
-        </form>
+                <button class="blogPost" type="submit" id="submitButton">Edit blog post</button>
+            </form>
+        </div>
     </section>
     <section>
         <footer>

@@ -54,7 +54,7 @@ submitBtn.onclick = function() {
     fetchLogin();
 };
 
+// Onclick for redirection to register page
 registBtn.onclick = function(){
-     window.location.href =`/account/register.html`
-
+    window.location.href =`/account/register.html`
 }
