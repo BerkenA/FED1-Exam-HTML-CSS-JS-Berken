@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
             
 
             singlePostDiv.innerHTML = `
-                <h2>${post.title}</h2>
+                <h3>${post.title}</h3>
                 <p>By ${post.author.name}</p>
                 <img src="${post.media.url}" alt="${post.media.alt || post.title}">
                 <p>${post.body}</p>

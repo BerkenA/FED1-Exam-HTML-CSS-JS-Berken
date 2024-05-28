@@ -21,7 +21,7 @@ body {
     width: 100vw;
     position: absolute;
     background-color: var(--quadratory);
-    top: 6.2rem;
+    top: 6rem;
     display: none;
     padding-left: 1rem;
 }
@@ -91,7 +91,12 @@ nav {
     }
 
     #burgerMenu{
-        top: 9.2rem;
+    width: 100vw;
+    position: absolute;
+    background-color: var(--quadratory);
+    top: 6rem;
+    display: none;
+    padding-left: 1rem;
     }
 }
 

@@ -2,6 +2,11 @@
     box-sizing: border-box;
 }
 
+body {
+    width: 100%;
+    height: 100%;
+}
+
 .createBlogForm {
     display: flex;
     flex-direction: column;
