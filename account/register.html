@@ -5,9 +5,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="register.js" defer></script>
+    <script src="/burger-menu.js" defer></script>
     <title>Register</title>
     <link rel="stylesheet" type="text/css" href="/css/header.css">
     <link rel="stylesheet" type="text/css" href="/css/footer.css">
+    <link rel="stylesheet" type="text/css" href="/css/register.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
@@ -23,6 +25,9 @@
                 <ul>
                     <li>
                         <a href="/index.html" aria-label="click here to go home"> Home </a>
+                    </li>
+                    <li>
+                        <a href="/account/login.html" aria-label="click here to login"> Login </a>
                     </li>
                 </ul>
             </div>
@@ -45,29 +50,33 @@
             <!-- Logos for tickets and mobile/tablet menu -->
             <div class="navbarIcons">
                 <div class="">
-                    <a href="account/login.html">
+                    <a href="login.html">
                         <i class="fa-solid fa-right-to-bracket fa-2xl" style="color: #242424;"></i>
                     </a>
                 </div>
-                <div class="menuHide">
-                    <a href="" aria-label="click here to open the menu">
-                        <i class="fa-solid fa-bars fa-2xl" style="color: #242424"></i>
-                    </a>
+                <div class="menuHide" id="burgerOpen" aria-label="click here to open the menu">
+                    <i class="fa-solid fa-bars fa-2xl" style="color: #242424;" id="burgerOpenIcon"></i>
+                    <i class="fa-solid fa-xmark fa-2xl" id="burgerCloseIcon" style="color: #242424;"></i>
                 </div>
             </div>
         </nav>
     </header>
     <main>
-        <section>
-            <h1>User Registration</h1>
+        <section class="centerThis">
+            <div class="centerPicture">
+                <img src="/assets/Tech-tips-daily-logo.jpg" alt="tech tips daily logo">
+            </div>
             <form id="registrationForm">
+                <h1>User Registration</h1>
                 <label for="name">User name:</label><br>
                 <input type="text" id="name" name="name"><br>
                 <label for="email">Email:</label><br>
                 <input type="email" id="email" name="email"><br>
                 <label for="password">Password:</label><br>
                 <input type="password" id="password" name="password"><br>
-                <button type="submit">Register</button>
+                <label for="password">Confirm password:</label><br>
+                <input type="password" id="confirmPassword" name="password"><br>
+                <button type="submit" id="registerButton">Register</button>
             </form>
         </section>
     </main>

@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="/css/header.css">
     <link rel="stylesheet" type="text/css" href="/css/footer.css">
     <script src="/account/login.js" defer></script>
+    <script src="/burger-menu.js" defer></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
@@ -24,6 +25,9 @@
                 <ul>
                     <li>
                         <a href="../index.html" aria-label="click here to go home"> Home </a>
+                    </li>
+                    <li>
+                        <a href="/account/login.html" aria-label="click here to login"> Login </a>
                     </li>
                 </ul>
             </div>
@@ -46,29 +50,33 @@
             <!-- Logos for tickets and mobile/tablet menu -->
             <div class="navbarIcons">
                 <div class="">
-                    <a href="account/login.html">
+                    <a href="/account/login.html">
                         <i class="fa-solid fa-right-to-bracket fa-2xl" style="color: #242424;"></i>
                     </a>
                 </div>
-                <div class="menuHide">
-                    <a href="" aria-label="click here to open the menu">
-                        <i class="fa-solid fa-bars fa-2xl" style="color: #242424"></i>
-                    </a>
+                <div class="menuHide" id="burgerOpen" aria-label="click here to open the menu">
+                    <i class="fa-solid fa-bars fa-2xl" style="color: #242424;" id="burgerOpenIcon"></i>
+                    <i class="fa-solid fa-xmark fa-2xl" id="burgerCloseIcon" style="color: #242424;"></i>
                 </div>
             </div>
         </nav>
     </header>
     <main>
         <section>
-            <h1>Login</h1>
-            <form id="loginForm">
-                <label for="email">Email:</label><br>
-                <input type="email" id="email" name="username"><br>
-                <label for="password">Password:</label><br>
-                <input type="password" id="password" name="password"><br>
-                <input type="button" id="submit" value="Login">
-            </form>
-            <button id="registerButton">Register</button>
+            <div class="centerPicture">
+                <img src="/assets/Tech-tips-daily-logo.jpg" alt="tech tips daily logo">
+            </div>
+            <div class="formSection">
+                <h1>Login</h1>
+                <form id="loginForm">
+                    <label for="email">Email:</label><br>
+                    <input type="email" id="email" name="username"><br>
+                    <label for="password">Password:</label><br>
+                    <input type="password" id="password" name="password"><br>
+                    <input type="button" id="submit" value="Login">
+                    <button type="button" id="registerButton">Register</button>
+                </form>
+            </div>
         </section>
     </main>
     <section>

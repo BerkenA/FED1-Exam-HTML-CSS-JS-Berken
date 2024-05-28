@@ -8,7 +8,9 @@
     <link rel="stylesheet" href="/css/make.css">
     <link rel="stylesheet" type="text/css" href="/css/header.css">
     <link rel="stylesheet" type="text/css" href="/css/footer.css">
+    <link rel="stylesheet" type="text/css" href="/css/edit-create.css">
     <script src="/post/create-post.js" defer></script>
+    <script src="/burger-menu.js" defer></script>
     <script src="/account/logout.js" defer></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -24,6 +26,9 @@
                 <ul>
                     <li>
                         <a href="/index.html" aria-label="click here to go home"> Home </a>
+                    </li>
+                    <li>
+                        <a href="/account/login.html" aria-label="click here to login"> Login </a>
                     </li>
                 </ul>
             </div>
@@ -46,40 +51,42 @@
             <!-- Logos for tickets and mobile/tablet menu -->
             <div class="navbarIcons">
                 <div class="">
-                    <a href="account/login.html">
+                    <a href="/account/login.html">
                         <i class="fa-solid fa-right-to-bracket fa-2xl" style="color: #242424;"></i>
                     </a>
                 </div>
-                <div class="menuHide">
-                    <a href="" aria-label="click here to open the menu">
-                        <i class="fa-solid fa-bars fa-2xl" style="color: #242424"></i>
-                    </a>
+                <div class="menuHide" id="burgerOpen" aria-label="click here to open the menu">
+                    <i class="fa-solid fa-bars fa-2xl" style="color: #242424;" id="burgerOpenIcon"></i>
+                    <i class="fa-solid fa-xmark fa-2xl" id="burgerCloseIcon" style="color: #242424;"></i>
                 </div>
             </div>
         </nav>
     </header>
     <main>
         <section>
-            <h1>Create post</h1>
-            <form class="createBlogForm">
-                <label for="text">
-                    Title of your blogpost:
-                    <input placeholder="Type your title here" type="text" id="title" name="title" />
-                </label>
-                <label for="text">
-                    Body:
-                    <input type="text" placeholder="Type your blog here" id="body" name="body" />
-                </label>
-                <label for="text">
-                    Tags:
-                    <input type="text" placeholder="Type your tags here" id="tags" name="tags" />
-                </label>
-                <label for="image">
-                    Submit image:
+            <div class="centerForm">
+                <h2>Create post</h2>
+                <form class="createBlogForm">
+                    <label for="text">
+                        Title of your blogpost:
+                    </label>
+                    <input placeholder="Type your title here" type="text" id="title" name="title" required />
+                    <label for="text">
+                        Body:
+                    </label>
+                    <textarea type="text" placeholder="Type your blog here" id="body" name="body" rows="20"
+                        maxlength="2000" required></textarea>
+                    <label for="text">
+                        Tags:
+                    </label>
+                    <input type="text" placeholder="Type your tags here" id="tags" name="tags" maxlength="24" />
+                    <label for="image">
+                        Submit image:
+                    </label>
                     <input type="text" placeholder="Submit your image here" id="image" name="image" />
-                </label>
-                <button class="blogPost" type="submit">Create blog post</button>
-            </form>
+                    <button class="blogPost" type="submit">Create blog post</button>
+                </form>
+            </div>
         </section>
     </main>
     <section>

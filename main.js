@@ -1,8 +1,13 @@
 const getToken = window.localStorage.getItem("Bearer Token")
 const userId = window.localStorage.getItem("User Storage")
+let carrrousellIndex = 0;
+const leftButton = document.getElementById("carrousellLeft")
+const rightButton = document.getElementById("carrousellRight")
+let blogListData;
+let caroussellListData;
+const carrousellImageDiv = document.querySelector(".carrousellImage");
 
-function displayBlogList(){
-    const blogList = document.querySelector(".blogList");
+function fetchBlogList(){
     fetch(`https://v2.api.noroff.dev/blog/posts/${userId}`)
     .then(response => {
         if(!response.ok){
@@ -10,24 +15,61 @@ function displayBlogList(){
         }
         return response.json();
     }).then(json => {
-        const blogListData = json.data;
-        blogList.innerHTML = '';
+        blogListData = json.data;
+        carrousellPictures = blogListData.slice(0,Math.min(blogListData.length, 3));
+        displayCaroussell();
+        displayBlogList();
+        }
+    ).catch((error)=>{
+        alert('Oops, something went wrong, try logging in again')
+    })
+};
+
+function displayBlogList(){
+    const blogList = document.querySelector(".blogList");
+    blogList.innerHTML = '';
         for(let listItem of blogListData){
+            const truncatedBody = listItem.body.length > 100 ? listItem.body.substring(0, 200) + '...' : listItem.body;
             blogList.innerHTML+=`
             <li>
-                <ul>
-                    <a href="/post/index.html?userId=${userId}&id=${listItem.id}
-                    ">
-                    <li><img src="${listItem.media.url}"></li>
-                    <li>${listItem.title}</li>
-                    <li>${listItem.author.name}</li>
-                    <li>${listItem.body}</li>
-                    </a>
-                </ul>
+                <a href="/post/index.html?userId=${userId}&id=${listItem.id}
+                ">
+                <li><img src="${listItem.media.url}" alt="${listItem.media.alt}"></li>
+                <li><h2>${listItem.title}</h2></li>
+                <li><h4>Written by: ${listItem.author.name}</h4></li>
+                <li>${truncatedBody}</li>
+                </a>
             </li>`
-            //Hrefen må være til single post pagen din og ikke listitem.url da den ikke leder noe sted.
-        }
-    })
+}}
+
+function displayCaroussell(){
+    carrousellImageDiv.innerHTML =`<img src="${carrousellPictures[carrrousellIndex].media.url}">`
 }
 
-displayBlogList();
+function showNextPicture (){
+    if(carrrousellIndex >= 2){
+        carrrousellIndex = 0;
+    } else {
+        carrrousellIndex++
+    }
+    displayCaroussell();
+}
+
+function showPreviousPicture (){
+    if(carrrousellIndex <= 0){
+        carrrousellIndex = 2;
+    } else {
+        carrrousellIndex--
+    }
+    displayCaroussell();
+}
+
+function navigateToBlogPost(){
+    window.location =`/post/index.html?userId=${userId}&id=${blogListData[carrrousellIndex].id}`
+}
+
+leftButton.addEventListener('click',showPreviousPicture);
+rightButton.addEventListener('click',showNextPicture);
+carrousellImageDiv.addEventListener('click',navigateToBlogPost)
+
+fetchBlogList();

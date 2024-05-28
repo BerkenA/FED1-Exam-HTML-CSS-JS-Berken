@@ -5,6 +5,14 @@ function createUser() {
     const password = document.getElementById('password').value;
     const name = document.getElementById('name').value;
 
+    const confirmPasswordInput = document.getElementById('confirmPassword');
+    const confirmPasswordValue = confirmPasswordInput.value;
+
+    if(password!==confirmPasswordValue){
+        alert("Oops, the passwords doesn't match!");
+        return;
+    }
+
 
     const myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
@@ -45,3 +53,4 @@ registrationForm.addEventListener('submit', function(event) {
     event.preventDefault();
     createUser();
 });
+

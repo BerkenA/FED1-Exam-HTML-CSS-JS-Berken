@@ -42,9 +42,9 @@
         width: 100vw;
     }
 
-    li, a {
+    /* li, a {
         font-size: 1.625rem;
-    }
+    } */
 
     .section-bottom img {
         width: 12rem;
@@ -69,9 +69,9 @@
         width: 100vw;
     }
 
-    li, a {
+    /* li, a {
         font-size: 2rem;
-    }
+    } */
 
     .menu-sections {
         flex-direction: row;
@@ -84,13 +84,19 @@
         font-size: 2rem;
     }
 
+    .createPost{
+        font-size: 2rem;
+        font-weight: bold;
+    }
+
     .bottom-footer {
         flex-direction: row;
         gap: 3.375rem;
         align-items: center;
         padding-right: 3.375rem;
-        height: 10rem;
+        height: 8rem;
         font-size: 2rem;
+        margin: 0;
     }
 
     .bottom-footer a {
@@ -99,7 +105,7 @@
 
     .section-bottom img {
         width: 35rem;
-        height: 10rem;
+        height: 8rem;
         float: left;
     }
 }

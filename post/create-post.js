@@ -3,6 +3,11 @@ postForm.addEventListener("submit", submitBlogPost);
 const bearerToken = window.localStorage.getItem("Bearer Token");
 const userName = window.localStorage.getItem("User Storage");
 
+if (!userName || !bearerToken) {
+    window.alert('You must be logged in to view this page');
+    window.location.href = '/account/login.html'; // Stop further execution of the function
+}
+
 
 function submitBlogPost(event) {
     event.preventDefault();

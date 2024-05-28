@@ -5,11 +5,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Gamer's Archives</title>
-    <link rel="stylesheet" href="/css/make.css">
+    <link rel="stylesheet" type="text/css" href="/css/styles.css">
     <link rel="stylesheet" type="text/css" href="/css/header.css">
     <link rel="stylesheet" type="text/css" href="/css/footer.css">
     <script src="/post/make.js" defer></script>
     <script src="/account/logout.js" defer></script>
+    <script src="/burger-menu.js" defer></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
@@ -25,6 +26,9 @@
                     <li>
                         <a href="/index.html" aria-label="click here to go home"> Home </a>
                     </li>
+                    <li>
+                        <a href="/account/login.html" aria-label="click here to login"> Login </a>
+                    </li>
                 </ul>
             </div>
             <!-- My logo and language -->
@@ -32,6 +36,9 @@
                 <a href="/index.html" aria-label="click here to get to home page">
                     <img class="techLogo" src="/assets/Tech-tips-daily-logo.jpg" alt="tech tips daily logo">
                 </a>
+            </div>
+            <div class="createPost">
+                <a href="/post/create-post.html">Create post</a>
             </div>
 
             <!-- My menu for desktop -->
@@ -45,21 +52,23 @@
 
             <!-- Logos for tickets and mobile/tablet menu -->
             <div class="navbarIcons">
-                <div class="">
-                    <a href="account/login.html">
+                <div>
+                    <a href="/account/login.html">
                         <i class="fa-solid fa-right-to-bracket fa-2xl" style="color: #242424;"></i>
                     </a>
                 </div>
-                <div class="menuHide">
-                    <a href="" aria-label="click here to open the menu">
-                        <i class="fa-solid fa-bars fa-2xl" style="color: #242424"></i>
-                    </a>
+                <div class="menuHide" id="burgerOpen" aria-label="click here to open the menu">
+                    <i class="fa-solid fa-bars fa-2xl" style="color: #242424;" id="burgerOpenIcon"></i>
+                    <i class="fa-solid fa-xmark fa-2xl" id="burgerCloseIcon" style="color: #242424;"></i>
                 </div>
             </div>
         </nav>
     </header>
     <main>
         <section>
+            <div class="centerThis">
+                <h3>Your admin page</h3>
+            </div>
             <ul class="blogList">
 
             </ul>

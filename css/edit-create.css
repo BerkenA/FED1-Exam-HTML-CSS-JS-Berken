@@ -1,0 +1,73 @@
+:root {
+    --primary: #F8F8F8;
+    --secondary: #242424;
+    --tertiary: #6D6D6D;
+    --quadratory: #B0B0B0;
+    --quadlupatory: #EFEFEF;
+}
+
+* {
+    font-family: "Roboto", sans-serif;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+}
+
+h2 {
+    align-self: center;
+}
+
+input {
+    height: 2rem;
+}
+
+label {
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+.centerForm {
+    display: flex;
+    flex-direction: column;
+    margin: 1rem;
+}
+
+#body {
+    width: 100%;
+}
+
+#image {
+    margin-bottom: 1rem;
+}
+
+.blogPost {
+    background-color: var(--secondary);
+    color: var(--primary);
+    height: 2rem;
+    margin-bottom: 1rem;
+}
+
+/* Extra Large (xl) */
+@media (min-width: 1280px) {
+    /* Your styles for the extra large breakpoint here */
+    body {
+        font-size: 2rem;
+    }
+
+    input {
+        height: 3rem;
+    }
+
+    label {
+        height: 3rem;
+    }
+
+    .blogPost {
+        font-size: 2rem;
+        height: 3rem;
+    }
+}

@@ -1,9 +1,14 @@
 const userName = window.localStorage.getItem("User Storage")
 const bearerToken = window.localStorage.getItem("Bearer Token")
 
+if (!userName || !bearerToken) {
+    window.alert('You must be logged in to view this page');
+    window.location.href = '/account/login.html'; // Stop further execution of the function
+}
+
 function displayBlogList(){
     const blogList = document.querySelector(".blogList");
-    fetch("https://v2.api.noroff.dev/blog/posts/berate")
+    fetch(`https://v2.api.noroff.dev/blog/posts/${userName}`)
     .then(response => {
         if(!response.ok){
             throw new Error("404 page was not found!");
@@ -12,21 +17,23 @@ function displayBlogList(){
     }).then(json => {
         const blogListData = json.data;
         for(let listItem of blogListData){
-            console.log(listItem.title)
+            const truncatedBody = listItem.body.length > 100 ? listItem.body.substring(0, 200) + '...' : listItem.body;
             blogList.innerHTML+=`
-            <li>
-                <div class="postCard">
-                    <img src="${listItem.media.url}">
-                    <span>${listItem.title}</span>
-                    <span>${listItem.author.name}</span>
-                    <span>${listItem.body}</span>
-                    <a href="/post/edit.html?ID=${listItem.id}">edit blog post</a>
-                    <button onclick="handleDelete('${listItem.id}')" class="deleteButton" data-postId="${listItem.id}">Delete</button>
-                </div>
-            </li>`
+            <ul>
+                <li class="postCard">
+                    <li><img src="${listItem.media.url}" alt=""></li>
+                    <li><h2>${listItem.title}</h2></li>
+                    <li><h4>Written by: ${listItem.author.name}</h4></li>
+                    <li>${truncatedBody}</li>
+                    <li class="seperateMe">
+                    <li><a href="/post/edit.html?ID=${listItem.id}">Edit blog post</a></li>
+                    <li><button onclick="handleDelete('${listItem.id}')" class="deleteButton" data-postId="${listItem.id}">Delete</button></li>
+                    <li><a href="/post/index.html?userId=${userName}&id=${listItem.id}
+                    ">Go to post</a></li>
+                    </li>
+                </li>
+            </ul>`
         }
-        
-
     })
 }
 
@@ -40,7 +47,7 @@ function handleDelete(postId) {
             method: "DELETE",
             headers: {
                 "Authorization": `Bearer ${bearerToken}`,
-                "Content-Type": "application/json" // Add content type header
+                "Content-Type": "application/json"
             },
             body: JSON.stringify({}) // Send an empty body
         })
@@ -53,6 +60,7 @@ function handleDelete(postId) {
             if (listItem) {
                 listItem.remove();
                 alert("Post deleted successfully");
+                window.location.href ='/post/make.html'
             } else {
                 console.error("Error deleting post: Try again later");
             }

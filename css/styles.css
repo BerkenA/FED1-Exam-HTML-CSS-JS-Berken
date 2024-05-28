@@ -6,10 +6,19 @@
     --quadlupatory: #EFEFEF;
 }
 
+body {
+    width: 100%;
+    height: 100%;
+}
+
 * {
     font-family: "Roboto", sans-serif;
     box-sizing: border-box;
-    background-color: var(--primary);
+}
+
+a {
+    text-decoration: none;
+    color: var(--secondary);
 }
 
 li {
@@ -22,18 +31,81 @@ li a {
     text-decoration: none;
 }
 
+#burgerCloseIcon {
+    display: none;
+}
+
+.centerMe{
+    display: flex;
+    justify-content: center;
+    margin-top: 3rem;
+}
+
+.createPost a {
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.carrousellSection {
+    display: flex;
+    align-items: center;
+    margin-top: 1rem;
+}
+
+.seperateMe{
+    display: flex;
+    margin-top: 1rem;
+    justify-content: space-evenly;
+}
+
+.carrousellSection img {
+    width: 100%;
+}
+
+#carrousellLeft{
+    font-size: 2rem;
+    border: none;
+    margin-right: 1rem;
+    background-color: transparent;
+    margin-left: 1rem;
+}
+
+#carrousellRight{
+    font-size: 2rem;
+    border: none;
+    margin-left: 1rem;
+    background-color: transparent;
+    margin-right: 1rem;
+}
+
+.centerThis{
+    display: flex;
+    justify-content: center;
+}
+
 .blogList {
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin: 1rem;
+}
+
+.blogList li{
+    margin: 1rem;
 }
 
 .blogList img {
-    height: 200px;
+    height: 100%;
+    width: 100%;
 }
 
 .blogList a {
     background-color: inherit;
+}
+
+.deleteButton{
+    background-color: var(--secondary);
+    color: var(--primary);
 }
 
 .roboto-regular {
@@ -49,4 +121,82 @@ li a {
 .roboto-bold {
     font-weight: 700;
     font-style: normal;
+}
+
+/* Medium (m) */
+@media (min-width: 744px) {
+    /* Your styles for the medium breakpoint here */
+    body {
+        width: 100vw;
+        font-size: 1.5rem;
+    }
+
+    .createPost a {
+        font-weight: bold;
+        font-size: 1.5rem;
+    }
+
+    .carrousellSection img {
+        width: 79vw;
+        height: 18.75rem;
+        object-fit: cover;
+    }
+
+    #carrousellRight {
+        font-size: 3rem;
+    }
+    
+    #carrousellLeft {
+        font-size: 3rem;
+    }
+
+    .blogList ul {
+        margin-left: 1rem;
+    }
+
+    .blogList img {
+        height: 300px;
+        object-fit: cover;
+        width: 94vw;
+    }
+
+    .deleteButton{
+        font-size: 1.5rem;
+    }
+}
+
+/* Extra Large (xl) */
+@media (min-width: 1280px) {
+    /* Your styles for the extra large breakpoint here */
+    body {
+        width: 100vw;
+        font-size: 1.5rem;
+    }
+
+    .createPost a {
+        font-weight: bold;
+        font-size: 2rem;
+    }
+
+    .carrousellSection {
+        justify-content: center;
+    }
+
+    #carrousellRight {
+        font-size: 5rem;
+    }
+    
+    #carrousellLeft {
+        font-size: 5rem;
+    }
+
+    .carrousellSection img {
+        width: 84vw;
+        height: 18.75rem;
+        object-fit: cover;
+    }
+
+    #burgerOpen {
+        display: none;
+    }
 }

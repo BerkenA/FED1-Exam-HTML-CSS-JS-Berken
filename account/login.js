@@ -5,7 +5,6 @@ const registBtn = document.getElementById("registerButton")
 const getToken = window.localStorage.getItem("Bearer Token")
 const userId = window.localStorage.getItem("User Storage")
 
-
 // Function for logging in
 function fetchLogin() {
     let passwordValue = password.value;
@@ -35,7 +34,7 @@ function fetchLogin() {
         const userToken = fetchResult.name
         window.localStorage.setItem("Bearer Token", bearerToken)
         window.localStorage.setItem("User Storage", userToken)
-        window.location.href=`/post/index.html`
+        window.location.href=`/post/make.html`
     })
     .catch(error => {
         console.error('There was a problem with the fetch operation:', error);
@@ -55,6 +54,7 @@ submitBtn.onclick = function() {
     fetchLogin();
 };
 
+// Onclick for redirection to register page
 registBtn.onclick = function(){
     window.location.href =`/account/register.html`
 }
