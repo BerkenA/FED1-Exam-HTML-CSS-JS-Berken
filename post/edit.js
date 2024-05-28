@@ -6,7 +6,10 @@ const submitBtn = document.getElementById("submitButton")
 const userId = window.localStorage.getItem("User Storage");
 const bearerToken = window.localStorage.getItem("Bearer Token");
 
-
+if (!userId || !bearerToken) {
+    window.alert('You must be logged in to view this page');
+    window.location.href = '/account/login.html'; // Stop further execution of the function
+}
 
     // Function to fetch blog posts from the API
     async function fetchBlogPosts() {

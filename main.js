@@ -21,7 +21,7 @@ function fetchBlogList(){
         displayBlogList();
         }
     ).catch((error)=>{
-        alert('Oops, something went wrong')
+        alert('Oops, something went wrong, try logging in again')
     })
 };
 
