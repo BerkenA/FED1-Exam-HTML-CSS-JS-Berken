@@ -161,7 +161,7 @@ li a {
 }
 
 #prevPage {
-    width: 8rem;
+    width: 5rem;
     margin: 2rem;
     background-color: var(--secondary);
     color: var(--primary);
@@ -173,7 +173,7 @@ li a {
 }
 
 #nextPage {
-    width: 8rem;
+    width: 5rem;
     margin: 2rem;
     background-color: var(--secondary);
     color: var(--primary);
