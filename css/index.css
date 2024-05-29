@@ -21,6 +21,10 @@ a:hover {
     cursor: pointer;
 }
 
+button:hover {
+    cursor: pointer
+}
+
 .singlePost {
     display: flex;
     flex-direction: column;

@@ -68,6 +68,7 @@ body {
 
     #registrationForm input {
         width: 18rem;
+        font-size: 1.2rem;
     }
 
     #submit {
@@ -86,6 +87,10 @@ body {
     /* Your styles for the extra large breakpoint here */
     body {
         width: 100vw;
+    }
+
+    #registrationForm input {
+        font-size: 1.5rem;
     }
 
     #email {
