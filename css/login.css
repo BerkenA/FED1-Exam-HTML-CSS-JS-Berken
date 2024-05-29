@@ -71,10 +71,12 @@ body {
 
     #email {
         width: 20rem;
+        font-size: 1.2rem;
     }
 
     #password {
         width: 20rem;
+        font-size: 1.2rem;
     }
 }
 
@@ -91,5 +93,13 @@ body {
     
     #registerButton {
         width: 9.3rem;
+    }
+
+    #email {
+        font-size: 1.5rem;
+    }
+
+    #password {
+        font-size: 1.5rem;
     }
 }

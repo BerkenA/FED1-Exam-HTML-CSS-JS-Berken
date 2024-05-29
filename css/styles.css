@@ -6,14 +6,23 @@
     --quadlupatory: #EFEFEF;
 }
 
-body {
-    width: 100%;
-    height: 100%;
-}
-
 * {
     font-family: "Roboto", sans-serif;
     box-sizing: border-box;
+}
+
+body {
+    width: 100%;
+    height: 100%;
+    font-size: 1rem;
+}
+
+a:hover {
+    cursor: pointer;
+}
+
+button:hover {
+    cursor: pointer
 }
 
 a {
@@ -41,6 +50,25 @@ li a {
     margin-top: 3rem;
 }
 
+.centerMe h2 {
+    text-align: center;
+    width: 70%;
+    padding-bottom: 13rem;
+    z-index: 9;
+}
+
+.centerBlog {
+    display: flex;
+    justify-content: center;
+}
+
+.centerBody {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 3rem 0 0 0;
+}
+
 .createPost a {
     font-weight: bold;
     font-size: 1.2rem;
@@ -49,7 +77,7 @@ li a {
 .carrousellSection {
     display: flex;
     align-items: center;
-    margin-top: 1rem;
+    margin-top: 3rem;
 }
 
 .seperateMe{
@@ -60,6 +88,7 @@ li a {
 
 .carrousellSection img {
     width: 100%;
+    border-radius: 1rem;
 }
 
 #carrousellLeft{
@@ -81,13 +110,35 @@ li a {
 .centerThis{
     display: flex;
     justify-content: center;
+    z-index: 10;
+    margin-bottom: 13rem;
+}
+
+.centerThis h3 {
+    margin-bottom: 3rem;
 }
 
 .blogList {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 1rem;
+    margin: 1rem 1rem 14rem 1rem;
+    width: 70%;
+    background-color: var(--primary);
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    transform: perspective(1000px) translateZ(50px);
+    transition: transform 0.3s, box-shadow 0.3s;
+    border-radius: 1rem;
+}
+
+.blogList:hover {
+    /* transform: perspective(1000px) translateZ(70px); */
+    box-shadow: 0 20px 30px rgba(0, 0, 0, 0.3);
+}
+
+.blogList h2 {
+    margin-top: 0;
 }
 
 .blogList li{
@@ -97,15 +148,43 @@ li a {
 .blogList img {
     height: 100%;
     width: 100%;
+    border-radius: 1rem;
 }
 
 .blogList a {
     background-color: inherit;
 }
 
+.pagination {
+    display: flex;
+    justify-content: center;
+}
+
+#prevPage {
+    width: 8rem;
+    margin: 2rem;
+    background-color: var(--secondary);
+    color: var(--primary);
+    font-size: 1.2rem;
+}
+
+#pageIndicator {
+    margin-top: 2rem;
+}
+
+#nextPage {
+    width: 8rem;
+    margin: 2rem;
+    background-color: var(--secondary);
+    color: var(--primary);
+    font-size: 1.2rem;
+}
+
 .deleteButton{
     background-color: var(--secondary);
     color: var(--primary);
+    width: 5rem;
+    font-size: 1rem;
 }
 
 .roboto-regular {
@@ -150,19 +229,47 @@ li a {
         font-size: 3rem;
     }
 
+    .centerBody {
+        width: 100%;
+    }
+    
+    .blogList {
+        width: 80%;
+    }
+
     .blogList ul {
         margin-left: 1rem;
+    }
+
+    .blogList a {
+        width: 75vw;
     }
 
     .blogList img {
         height: 300px;
         object-fit: cover;
-        width: 94vw;
+        width: 75vw;
+    }
+
+    .pagination {
+        margin-bottom: 2rem;
     }
 
     .deleteButton{
         font-size: 1.5rem;
     }
+
+    #prevPage {
+        height: 3rem;
+        width: 13rem;
+        font-size: 1.5rem;
+        }
+    
+        #nextPage {
+        height: 3rem;
+        width: 13rem;
+        font-size: 1.5rem;
+        }
 }
 
 /* Extra Large (xl) */
@@ -171,6 +278,7 @@ li a {
     body {
         width: 100vw;
         font-size: 1.5rem;
+        overflow-x: hidden;
     }
 
     .createPost a {
@@ -191,12 +299,33 @@ li a {
     }
 
     .carrousellSection img {
-        width: 84vw;
+        width: 75vw;
         height: 18.75rem;
         object-fit: cover;
     }
 
+    .pagination {
+        margin-bottom: 3rem;
+    }
+
     #burgerOpen {
         display: none;
+    }
+
+    #prevPage {
+    height: 5rem;
+    width: 15rem;
+    font-size: 2rem;
+    }
+
+    #pageIndicator {
+    padding: 1rem 1rem 0 1rem;
+    font-size: 2.5rem;
+    }
+
+    #nextPage {
+    height: 5rem;
+    width: 15rem;
+    font-size: 2rem;
     }
 }

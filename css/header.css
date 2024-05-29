@@ -17,6 +17,10 @@ body {
     margin: 0;
 }
 
+header {
+    z-index: 20;
+}
+
 #burgerMenu {
     width: 100vw;
     position: absolute;
@@ -129,7 +133,7 @@ nav {
 
     .desktopMenu {
         display: flex;
-        gap: 3.5rem;
+        gap: 15rem;
         font-weight: bold;
         list-style-type: none;
         justify-content: center;

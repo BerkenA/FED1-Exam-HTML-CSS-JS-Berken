@@ -13,10 +13,11 @@
 
 .section-bottom {
     background-color: var(--secondary);
+    width: 100%;
 }
 
 .section-bottom img {
-    width: 100%;
+    width: 30%;
 }
 
 .bottom-footer {
@@ -24,6 +25,7 @@
     align-items: flex-end;
     justify-content: flex-end;
     padding: 0 1rem 2rem 0;
+    margin: 0;
     gap: 7rem;
     background-color: var(--secondary);
 }
@@ -41,10 +43,6 @@
     body {
         width: 100vw;
     }
-
-    /* li, a {
-        font-size: 1.625rem;
-    } */
 
     .section-bottom img {
         width: 12rem;
@@ -68,10 +66,6 @@
     body {
         width: 100vw;
     }
-
-    /* li, a {
-        font-size: 2rem;
-    } */
 
     .menu-sections {
         flex-direction: row;

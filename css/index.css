@@ -17,6 +17,10 @@ body {
     overflow-x: hidden;
 }
 
+a:hover {
+    cursor: pointer;
+}
+
 .singlePost {
     display: flex;
     flex-direction: column;
@@ -29,7 +33,7 @@ body {
 }
 
 .singlePost img {
-    height: 300px;
+    height: 18.75rem;
     width: 73%;
     align-self: center;
     object-fit: cover;

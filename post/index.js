@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Function to fetch and display a single post by ID
     async function fetchPostById(postId) {
-        const apiUrl = `https://v2.api.noroff.dev/blog/posts/${userId}/${postId}`;
+        const apiUrl = `https://v2.api.noroff.dev/blog/posts/berate/${postId}`;
         const singlePostDiv = document.querySelector(".singlePost");
 
         try {
@@ -19,8 +19,6 @@ document.addEventListener('DOMContentLoaded', () => {
             }
             const result = await response.json();
             const post = result.data;
-            
-
             singlePostDiv.innerHTML = `
                 <h3>${post.title}</h3>
                 <p>By ${post.author.name}</p>

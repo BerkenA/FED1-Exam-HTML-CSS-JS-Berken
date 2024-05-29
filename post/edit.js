@@ -1,3 +1,5 @@
+const logOutBtn = document.getElementById("logOut")
+const logOutDesktopBtn = document.getElementById("logOutDesktop")
 const titleField = document.getElementById("title")
 const bodyField = document.getElementById("body")
 const imageField = document.getElementById("image")
@@ -46,8 +48,6 @@ if (!userId || !bearerToken) {
         const stringParam = window.location.search;
         const urlParam = new URLSearchParams(stringParam);
         const postId = urlParam.get("ID");
-        
-        // Rename variables to avoid conflict
         const editedTitle = titleField.value;
         const editedBody = bodyField.value;
         const editedImage = imageField.value;
@@ -74,7 +74,6 @@ if (!userId || !bearerToken) {
                 throw new Error("Failed to update the post");
             } else {
                 alert("Post updated successfully");
-                // Optionally, redirect to another page after successful update
                 window.location.href = `/post/make.html`
             }
         })
@@ -87,40 +86,22 @@ if (!userId || !bearerToken) {
 
 // Function to handle form submission
 function handleSubmit(event) {
-    event.preventDefault(); // Prevents the default form submission behavior
-
-    // Call the handleEdit function to update the blog post
+    event.preventDefault();
     handleEdit();
 }
 
-// Add event listener to the form for the submit event
 document.querySelector('.createBlogForm').addEventListener('submit', handleSubmit);
 
-    document.addEventListener("DOMContentLoaded", function() {
-        // Call fetchBlogPosts function here
-        fetchBlogPosts();
-    });
-    
-    // function handleDelete(event) {
-    //     const postId = event.target.dataset.postId;
-    //     const confirmDelete = confirm("Are you sure you want to delete this post?");
-    //     if (confirmDelete) {
-    //         fetch(`https://v2.api.noroff.dev/blog/posts/berate/${postId}`, {
-    //             method: "DELETE",
-    //             headers: {
-    //                 "Authorization": `Bearer ${bearerToken}`
-    //             }
-    //         })
-    //         .then(response => {
-    //             if (!response.ok) {
-    //                 throw new Error("Failed to delete post");
-    //             }
-    //             event.target.parentElement.remove();
-    //             alert("Post deleted successfully");
-    //         })
-    //         .catch(error => {
-    //             console.error("Error deleting post:", error.message);
-    //         });
-    //     }
-    // }
-    
+document.addEventListener("DOMContentLoaded", function() {
+    fetchBlogPosts();
+});
+
+logOutBtn.addEventListener("click", logout) 
+logOutDesktopBtn.addEventListener("click", logout) 
+
+function logout(){
+    window.localStorage.removeItem('User Storage')
+    window.localStorage.removeItem('Bearer Token');
+    alert("You have been logged out"); 
+    window.location.href = '/account/login.html';
+}
