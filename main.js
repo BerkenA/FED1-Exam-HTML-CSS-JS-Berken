@@ -59,7 +59,9 @@ function updatePagination() {
 }
 
 function displayCaroussell() {
-    carrousellImageDiv.innerHTML = `<img src="${caroussellPictures[carrrousellIndex].media.url}">`;
+    const currentPicture = caroussellPictures[carrrousellIndex];
+    carrousellImageDiv.innerHTML = `
+    <img src="${caroussellPictures[carrrousellIndex].media.url} alt="${currentPicture.media.alt}">`;
 }
 
 function showNextPicture() {

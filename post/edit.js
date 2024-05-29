@@ -47,7 +47,7 @@ if (!userId || !bearerToken) {
     function handleEdit() {
         const stringParam = window.location.search;
         const urlParam = new URLSearchParams(stringParam);
-        const postId = urlParam.get("ID");t
+        const postId = urlParam.get("ID");
         const editedTitle = titleField.value;
         const editedBody = bodyField.value;
         const editedImage = imageField.value;

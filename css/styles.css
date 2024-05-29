@@ -17,6 +17,14 @@ body {
     font-size: 1rem;
 }
 
+a:hover {
+    cursor: pointer;
+}
+
+button:hover {
+    cursor: pointer
+}
+
 a {
     text-decoration: none;
     color: var(--secondary);
@@ -80,6 +88,7 @@ li a {
 
 .carrousellSection img {
     width: 100%;
+    border-radius: 1rem;
 }
 
 #carrousellLeft{
@@ -120,10 +129,11 @@ li a {
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
     transform: perspective(1000px) translateZ(50px);
     transition: transform 0.3s, box-shadow 0.3s;
+    border-radius: 1rem;
 }
 
 .blogList:hover {
-    transform: perspective(1000px) translateZ(70px);
+    /* transform: perspective(1000px) translateZ(70px); */
     box-shadow: 0 20px 30px rgba(0, 0, 0, 0.3);
 }
 
@@ -138,6 +148,7 @@ li a {
 .blogList img {
     height: 100%;
     width: 100%;
+    border-radius: 1rem;
 }
 
 .blogList a {
@@ -150,11 +161,11 @@ li a {
 }
 
 #prevPage {
-    width: 5rem;
+    width: 8rem;
     margin: 2rem;
     background-color: var(--secondary);
     color: var(--primary);
-    font-size: 1rem;
+    font-size: 1.2rem;
 }
 
 #pageIndicator {
@@ -162,11 +173,11 @@ li a {
 }
 
 #nextPage {
-    width: 5rem;
+    width: 8rem;
     margin: 2rem;
     background-color: var(--secondary);
     color: var(--primary);
-    font-size: 1rem;
+    font-size: 1.2rem;
 }
 
 .deleteButton{
@@ -291,6 +302,10 @@ li a {
         width: 75vw;
         height: 18.75rem;
         object-fit: cover;
+    }
+
+    .pagination {
+        margin-bottom: 3rem;
     }
 
     #burgerOpen {
