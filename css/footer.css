@@ -13,10 +13,11 @@
 
 .section-bottom {
     background-color: var(--secondary);
+    width: 100%;
 }
 
 .section-bottom img {
-    width: 100%;
+    width: 30%;
 }
 
 .bottom-footer {
@@ -24,6 +25,7 @@
     align-items: flex-end;
     justify-content: flex-end;
     padding: 0 1rem 2rem 0;
+    margin: 0;
     gap: 7rem;
     background-color: var(--secondary);
 }
@@ -55,10 +57,6 @@
 
     .menu-sections li {
         margin-top: 3rem;
-    }
-
-    .bottom-footer {
-        margin: 0 1rem 2rem 0;
     }
 }
 

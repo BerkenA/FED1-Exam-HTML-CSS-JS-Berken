@@ -17,6 +17,10 @@ body {
     margin: 0;
 }
 
+header {
+    z-index: 20;
+}
+
 #burgerMenu {
     width: 100vw;
     position: absolute;
