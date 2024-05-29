@@ -234,7 +234,7 @@ li a {
     }
     
     .blogList {
-        width: 80%;
+        width: 60%;
     }
 
     .blogList ul {
@@ -242,13 +242,13 @@ li a {
     }
 
     .blogList a {
-        width: 75vw;
+        width: 50vw;
     }
 
     .blogList img {
         height: 300px;
         object-fit: cover;
-        width: 75vw;
+        width: 50vw;
     }
 
     .pagination {
