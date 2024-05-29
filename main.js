@@ -40,7 +40,7 @@ function displayBlogList() {
         const truncatedBody = listItem.body.length > 100 ? listItem.body.substring(0, 200) + '...' : listItem.body;
         blogList.innerHTML += `
             <li>
-                <a href="/post/index.html?id=${listItem.id}">
+                <a href="/post/index.html?id=${listItem.id}" aria-label="click here to go to the post">
                     <li><img src="${listItem.media.url}" alt="${listItem.media.alt}"></li>
                     <li><h2>${listItem.title}</h2></li>
                     <li><h4>Written by: ${listItem.author.name}</h4></li>
