@@ -14,6 +14,7 @@
 body {
     width: 100%;
     height: 100%;
+    font-size: 1rem;
 }
 
 a {
@@ -39,6 +40,17 @@ li a {
     display: flex;
     justify-content: center;
     margin-top: 3rem;
+}
+
+.centerMe h2 {
+    text-align: center;
+    width: 70%;
+}
+
+.centerBody {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .createPost a {
@@ -88,6 +100,11 @@ li a {
     flex-direction: column;
     align-items: center;
     margin: 1rem;
+    width: 70%;
+}
+
+.blogList h2 {
+    margin-top: 0;
 }
 
 .blogList li{
@@ -181,15 +198,31 @@ li a {
         margin-left: 1rem;
     }
 
+    .blogList a {
+        width: 75vw;
+    }
+
     .blogList img {
         height: 300px;
         object-fit: cover;
-        width: 94vw;
+        width: 75vw;
     }
 
     .deleteButton{
         font-size: 1.5rem;
     }
+
+    #prevPage {
+        height: 3rem;
+        width: 10rem;
+        font-size: 1.5rem;
+        }
+    
+        #nextPage {
+        height: 3rem;
+        width: 10rem;
+        font-size: 1.5rem;
+        }
 }
 
 /* Extra Large (xl) */
@@ -218,12 +251,29 @@ li a {
     }
 
     .carrousellSection img {
-        width: 84vw;
+        width: 75vw;
         height: 18.75rem;
         object-fit: cover;
     }
 
     #burgerOpen {
         display: none;
+    }
+
+    #prevPage {
+    height: 5rem;
+    width: 15rem;
+    font-size: 2rem;
+    }
+
+    #pageIndicator {
+    padding: 1rem 1rem 0 1rem;
+    font-size: 2.5rem;
+    }
+
+    #nextPage {
+    height: 5rem;
+    width: 15rem;
+    font-size: 2rem;
     }
 }
