@@ -133,7 +133,6 @@ li a {
 }
 
 .blogList:hover {
-    /* transform: perspective(1000px) translateZ(70px); */
     box-shadow: 0 20px 30px rgba(0, 0, 0, 0.3);
 }
 
@@ -261,13 +260,13 @@ li a {
 
     #prevPage {
         height: 3rem;
-        width: 13rem;
+        width: 9rem;
         font-size: 1.5rem;
         }
     
         #nextPage {
         height: 3rem;
-        width: 13rem;
+        width: 9rem;
         font-size: 1.5rem;
         }
 }
@@ -313,19 +312,18 @@ li a {
     }
 
     #prevPage {
-    height: 5rem;
-    width: 15rem;
+    height: 3rem;
+    width: 9rem;
     font-size: 2rem;
     }
 
     #pageIndicator {
-    padding: 1rem 1rem 0 1rem;
-    font-size: 2.5rem;
+    font-size: 2rem;
     }
 
     #nextPage {
-    height: 5rem;
-    width: 15rem;
+    height: 3rem;
+    width: 9rem;
     font-size: 2rem;
     }
 }

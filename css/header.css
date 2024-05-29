@@ -82,7 +82,7 @@ nav {
     }
     
     nav{
-        height: 5rem;
+        height: 4rem;
     }
 
     .navbarIcons {
@@ -91,7 +91,7 @@ nav {
     }
 
     .logoScience img {
-        height: 5rem;
+        height: 4rem;
     }
 
     #burgerMenu{
@@ -146,7 +146,7 @@ nav {
     }
 
     .navbarIcons {
-        margin: 1rem 2rem 0 0;
+        margin: 1rem 2rem 1rem 0;
     }
 
     .menuHide i {
