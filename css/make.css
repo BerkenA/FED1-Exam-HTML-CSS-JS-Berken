@@ -10,7 +10,7 @@ body {
 .createBlogForm {
     display: flex;
     flex-direction: column;
-    width: 50%;
+    width: 100%;
 }
 
 .blogList {
@@ -72,6 +72,10 @@ li {
         font-size: 1.5rem;
     }
 
+    .createBlogForm{
+        width: 50%;
+    }
+
     .blogList li h2 h4{
         margin: 1rem 1rem 1rem 1rem;
     }
@@ -88,6 +92,10 @@ li {
     /* Your styles for the extra large breakpoint here */
     body {
         width: 100vw;
+    }
+
+    .createBlogForm{
+        width: 50%;
     }
 
     #burgerOpen {
