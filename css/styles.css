@@ -126,7 +126,6 @@ li a {
     margin: 1rem 1rem 18rem 1rem;
     width: 65%;
     background-color: var(--primary);
-    border-radius: 10px;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
     transform: perspective(1000px) translateZ(50px);
     transition: transform 0.3s, box-shadow 0.3s;
