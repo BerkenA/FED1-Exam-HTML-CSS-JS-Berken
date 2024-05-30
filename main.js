@@ -40,12 +40,22 @@ function displayBlogList() {
 
     for (let listItem of paginatedPosts) {
         const truncatedBody = listItem.body.length > 100 ? listItem.body.substring(0, 200) + '...' : listItem.body;
+        const createdDate = new Date(listItem.created);
+        const formattedDate = createdDate.toLocaleString("en-GB", {
+            year: "numeric",
+            month: "2-digit",
+            day: "2-digit",
+            hour: "2-digit",
+            minute: "2-digit",
+            hour12: false
+        });
         blogList.innerHTML += `
             <li>
                 <a href="/post/index.html?id=${listItem.id}" aria-label="click here to go to the post">
                     <li><img src="${listItem.media.url}" alt="${listItem.media.alt}"></li>
                     <li><h2>${listItem.title}</h2></li>
                     <li><h4>Written by: ${listItem.author.name}</h4></li>
+                    <li style="font-weight: bold">Created: ${formattedDate}</li>
                     <li>${truncatedBody}</li>
                 </a>
             </li>`;
