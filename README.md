@@ -26,24 +26,27 @@ Dive into our articles and discover new ways to optimize your workflow, learn ab
 - View author, creation date, image, body, tags, and alt text for each post
 - Pagination with 12 posts per page and 2 pages in total
 
-Follow these steps to get the project up and running on your local machine:
-
-# Clone the repository
-git clone [https://github.com/BerkenA/FED1-Exam-HTML-CSS-JS-Berken#](https://github.com/BerkenA/FED1-Exam-HTML-CSS-JS-Berken.git)
-
 ## Screenshots
 ![](/assets/Tech-tips-gif.gif)
 
-##License
+Follow these steps to get the project up and running on your local machine:
+# Installation
+git clone [https://github.com/BerkenA/FED1-Exam-HTML-CSS-JS-Berken#](https://github.com/BerkenA/FED1-Exam-HTML-CSS-JS-Berken.git)
+
+## License
 This project is licensed under the MIT License
 see the license file for details.
 
-##Contact
+## Contact
 Berken Ates - berate01275@stud.noroff.no
+
+
 Project Link: https://github.com/BerkenA/FED1-Exam-HTML-CSS-JS-Berken.git
 
-##Acknowledgements
+## Acknowledgements
 Noroff School of Technology and Digital Media
+
+
 MDN Web Docs
 
 
