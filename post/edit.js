@@ -25,7 +25,7 @@ function previewImage(){
     <label for="preview">
     Image preview:
     </label>
-    <img src="${imgInput.value}" id="preview" alt="preview" style="width: 400px">`
+    <img src="${imgInput.value}" id="preview" alt="preview" style="width: 300px">`
 
     if (imgInput.value.length > 13){
     imgPreview.style.display = "flex";
