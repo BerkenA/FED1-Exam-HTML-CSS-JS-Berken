@@ -30,10 +30,15 @@ label {
     margin-bottom: 1rem;
 }
 
+button {
+    cursor: pointer;
+}
+
 .centerForm {
     display: flex;
     flex-direction: column;
     margin: 1rem;
+    align-items: center;
 }
 
 #body {
