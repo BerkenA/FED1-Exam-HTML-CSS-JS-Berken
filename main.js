@@ -13,6 +13,7 @@ const pageIndicator = document.getElementById("pageIndicator");
 let currentPage = 1;
 const postsPerPage = 12;
 
+//Function for fetching the blog posts
 function fetchBlogList() {
     fetch(`https://v2.api.noroff.dev/blog/posts/berate`)
         .then(response => {
@@ -30,6 +31,7 @@ function fetchBlogList() {
         });
 }
 
+//Function for displaying the bloglist
 function displayBlogList() {
     blogList.innerHTML = '';
     const start = (currentPage - 1) * postsPerPage;
@@ -52,18 +54,21 @@ function displayBlogList() {
     updatePagination();
 }
 
+//Function for pagination
 function updatePagination() {
     pageIndicator.textContent = `Page ${currentPage} of ${Math.ceil(blogListData.length / postsPerPage)}`;
     prevPageButton.disabled = currentPage === 1;
     nextPageButton.disabled = currentPage === Math.ceil(blogListData.length / postsPerPage);
 }
 
+//Function for my blog caroussell
 function displayCaroussell() {
     const currentPicture = caroussellPictures[carrrousellIndex];
     carrousellImageDiv.innerHTML = `
     <img src="${caroussellPictures[carrrousellIndex].media.url} alt="${currentPicture.media.alt}">`;
 }
 
+//Function for next blog post in the caroussell
 function showNextPicture() {
     if (carrrousellIndex >= 2) {
         carrrousellIndex = 0;
@@ -73,6 +78,7 @@ function showNextPicture() {
     displayCaroussell();
 }
 
+//Function for previous blog post in the caroussell
 function showPreviousPicture() {
     if (carrrousellIndex <= 0) {
         carrrousellIndex = 2;
@@ -82,10 +88,12 @@ function showPreviousPicture() {
     displayCaroussell();
 }
 
+//Function for the user to click on post and be redirected to it in the caroussell
 function navigateToBlogPost() {
     window.location = `/post/index.html?userId=${userId}&id=${blogListData[carrrousellIndex].id}`;
 }
 
+//Eventlisteners for my carroussell
 leftButton.addEventListener('click', showPreviousPicture);
 rightButton.addEventListener('click', showNextPicture);
 carrousellImageDiv.addEventListener('click', navigateToBlogPost);

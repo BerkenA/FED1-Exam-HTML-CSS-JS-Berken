@@ -1,5 +1,6 @@
 const registrationForm = document.getElementById('registrationForm');
 
+//Function for creating a new user
 function createUser() {
     const email = document.getElementById('email').value;
     const password = document.getElementById('password').value;
@@ -49,6 +50,7 @@ function createUser() {
     }
     )}
 
+    //Eventlistener for the register button
 registrationForm.addEventListener('submit', function(event) {
     event.preventDefault();
     createUser();

@@ -3,6 +3,7 @@ const logOutDesktopBtn = document.getElementById("logOutDesktop");
 const userName = window.localStorage.getItem("User Storage");
 const bearerToken = window.localStorage.getItem("Bearer Token");
 
+//If statement to check that the bearer token and username is in the local storage. If not redirect to login
 if (!userName || !bearerToken) {
     window.alert('You must be logged in to view this page');
     window.location.href = '/account/login.html';
@@ -16,6 +17,7 @@ let currentPage = 1;
 const postsPerPage = 12;
 let blogListData = [];
 
+//Function for fetching the bloglist
 function fetchBlogList() {
     fetch(`https://v2.api.noroff.dev/blog/posts/${userName}`)
         .then(response => {
@@ -31,6 +33,7 @@ function fetchBlogList() {
         });
 }
 
+//Function for displaying the bloglist
 function displayBlogList() {
     blogList.innerHTML = '';
     const start = (currentPage - 1) * postsPerPage;
@@ -42,7 +45,7 @@ function displayBlogList() {
         blogList.innerHTML += `
             <ul>
                 <li class="postCard">
-                    <li><img src="${listItem.media.url}" alt=""></li>
+                    <li><img src="${listItem.media.url}" alt="${listItem.media.alt}"></li>
                     <li><h2>${listItem.title}</h2></li>
                     <li><h4>Written by: ${listItem.author.name}</h4></li>
                     <li>${truncatedBody}</li>
@@ -58,12 +61,14 @@ function displayBlogList() {
     updatePagination();
 }
 
+//Function for pagination
 function updatePagination() {
     pageIndicator.textContent = `Page ${currentPage} of ${Math.ceil(blogListData.length / postsPerPage)}`;
     prevPageButton.disabled = currentPage === 1;
     nextPageButton.disabled = currentPage === Math.ceil(blogListData.length / postsPerPage);
 }
 
+//Function for deleting posts
 function handleDelete(postId) {
     const confirmDelete = confirm("Are you sure you want to delete this post?");
     if (confirmDelete) {
@@ -94,9 +99,11 @@ function handleDelete(postId) {
     }
 }
 
+//Eventlisteners for logging out
 logOutBtn.addEventListener("click", logout);
 logOutDesktopBtn.addEventListener("click", logout);
 
+//Function for logging out
 function logout() {
     window.localStorage.removeItem('User Storage');
     window.localStorage.removeItem('Bearer Token');
@@ -104,6 +111,7 @@ function logout() {
     window.location.href = '/account/login.html';
 }
 
+//Eventlistener for pagination
 prevPageButton.addEventListener('click', () => {
     if (currentPage > 1) {
         currentPage--;
@@ -112,6 +120,7 @@ prevPageButton.addEventListener('click', () => {
     }
 });
 
+//Eventlistener for pagination
 nextPageButton.addEventListener('click', () => {
     if (currentPage < Math.ceil(blogListData.length / postsPerPage)) {
         currentPage++;

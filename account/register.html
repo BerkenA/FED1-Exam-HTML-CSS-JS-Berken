@@ -11,7 +11,8 @@
     <meta name="author" content="Tech Tips Daily">
     <script src="register.js" defer></script>
     <script src="/burger-menu.js" defer></script>
-    <title>::: Tech Tips Daily :::</title>
+    <title>Tech Tips Daily</title>
+    <link rel="icon" href="/assets/Tech-tips-daily-logo.jpg" type="image/jpg">
     <link rel="stylesheet" type="text/css" href="/css/header.css">
     <link rel="stylesheet" type="text/css" href="/css/footer.css">
     <link rel="stylesheet" type="text/css" href="/css/register.css">
@@ -35,7 +36,7 @@
                     </li>
                 </ul>
             </div>
-            <!-- My logo and language -->
+            <!-- My logo -->
             <div class="logoScience">
                 <a href="/index.html" aria-label="click here to get to home page">
                     <img class="techLogo" src="/assets/Tech-tips-daily-logo.jpg" alt="tech tips daily logo">
@@ -51,13 +52,14 @@
                 </li>
             </ul>
 
-            <!-- Logos for tickets and mobile/tablet menu -->
+            <!-- Logos for mobile/tablet menu -->
             <div class="navbarIcons">
                 <div class="">
                     <a href="login.html" aria-label="click here to login">
                         <i class="fa-solid fa-right-to-bracket fa-2xl" style="color: #242424;"></i>
                     </a>
                 </div>
+                <!-- My burgermenu logos -->
                 <div class="menuHide" id="burgerOpen" aria-label="click here to open the menu">
                     <i class="fa-solid fa-bars fa-2xl" style="color: #242424;" id="burgerOpenIcon"></i>
                     <i class="fa-solid fa-xmark fa-2xl" id="burgerCloseIcon" style="color: #242424;"></i>
@@ -65,27 +67,32 @@
             </div>
         </nav>
     </header>
+
     <main>
+        <!-- My section for the logo and center it -->
         <section class="centerThis">
             <div class="centerPicture">
                 <img src="/assets/Tech-tips-daily-logo.jpg" alt="tech tips daily logo">
             </div>
+            <!-- My form for registration -->
             <form id="registrationForm">
                 <h1>User Registration</h1>
                 <label for="name">User name:</label><br>
-                <input type="text" id="name" name="name"><br>
+                <input type="text" id="name" name="name" required><br>
                 <label for="email">Email:</label><br>
-                <input type="email" id="email" name="email"><br>
+                <input type="email" id="email" name="email" required><br>
                 <label for="password">Password:</label><br>
-                <input type="password" id="password" name="password"><br>
+                <input type="password" id="password" name="password" required><br>
                 <label for="password">Confirm password:</label><br>
-                <input type="password" id="confirmPassword" name="password"><br>
+                <input type="password" id="confirmPassword" name="password" required><br>
                 <button type="submit" id="registerButton">Register</button>
             </form>
         </section>
     </main>
+
     <section>
         <footer>
+            <!-- My footer -->
             <div class="section-bottom">
                 <a href="index.html" aria-label="click here to go to home page">
                     <img src="/assets/Footer-logo-mobile.jpg" alt="tech tips daily logo">

@@ -78,6 +78,7 @@ li a {
     display: flex;
     align-items: center;
     margin-top: 3rem;
+    justify-content: center;
 }
 
 .seperateMe{
@@ -122,8 +123,8 @@ li a {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 1rem 1rem 14rem 1rem;
-    width: 70%;
+    margin: 1rem 1rem 18rem 1rem;
+    width: 65%;
     background-color: var(--primary);
     border-radius: 10px;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
@@ -142,6 +143,8 @@ li a {
 
 .blogList li{
     margin: 1rem;
+    width: 89%;
+    justify-content: center;
 }
 
 .blogList img {
@@ -169,6 +172,7 @@ li a {
 
 #pageIndicator {
     margin-top: 2rem;
+    text-wrap: nowrap;
 }
 
 #nextPage {
@@ -233,11 +237,12 @@ li a {
     }
     
     .blogList {
-        width: 60%;
+        width: 55%;
+        margin-top: 4rem;
     }
 
     .blogList ul {
-        margin-left: 1rem;
+        margin: 1rem 0 0 1rem;
     }
 
     .blogList a {
@@ -251,7 +256,7 @@ li a {
     }
 
     .pagination {
-        margin-bottom: 2rem;
+        margin: 2rem 0 2rem 0;
     }
 
     .deleteButton{
@@ -301,6 +306,12 @@ li a {
         width: 75vw;
         height: 18.75rem;
         object-fit: cover;
+    }
+
+    .carrousellImage {
+        -webkit-box-reflect: below -10px
+        linear-gradient(transparent, transparent, #0004);
+        transform-origin: center;
     }
 
     .pagination {

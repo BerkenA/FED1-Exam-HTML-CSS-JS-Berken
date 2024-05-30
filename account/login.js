@@ -38,7 +38,7 @@ function fetchLogin() {
     })
     .catch(error => {
         console.error('There was a problem with the fetch operation:', error);
-        alert('An error occurred while logging in');
+        alert('An error occurred while logging in, please fill out the forms');
     });
 };
 

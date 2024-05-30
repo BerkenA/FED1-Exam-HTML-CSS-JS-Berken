@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
         return urlParams.get(param);
     }
 
-    // Function to fetch and display a single post by ID
+    //Function to fetch and display a single post by ID
     async function fetchPostById(postId) {
         const apiUrl = `https://v2.api.noroff.dev/blog/posts/berate/${postId}`;
         const singlePostDiv = document.querySelector(".singlePost");
