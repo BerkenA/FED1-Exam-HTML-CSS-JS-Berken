@@ -49,12 +49,19 @@ button:hover {
     font-weight: bold;
 }
 
-.singlePost :nth-child(4) {
+.singlePost :nth-child(3) {
+    width: 73%;
+    align-self: center;
+    font-weight: bold;
+    text-align: center;
+}
+
+.singlePost :nth-child(5) {
     width: 73%;
     align-self: center;
 }
 
-.singlePost :nth-child(5), .singlePost :nth-child(6) {
+.singlePost :nth-child(6), .singlePost :nth-child(7) {
     align-self: center;
     margin-top: 1rem;
     text-wrap: nowrap;

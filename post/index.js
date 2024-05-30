@@ -19,9 +19,19 @@ document.addEventListener('DOMContentLoaded', () => {
             }
             const result = await response.json();
             const post = result.data;
+            const createdDate = new Date(post.created);
+            const formattedDate = createdDate.toLocaleString("en-GB", {
+                year: "numeric",
+                month: "2-digit",
+                day: "2-digit",
+                hour: "2-digit",
+                minute: "2-digit",
+                hour12: false
+            });
             singlePostDiv.innerHTML = `
                 <h3>${post.title}</h3>
                 <p>By ${post.author.name}</p>
+                <p>Created: ${formattedDate}</p>
                 <img src="${post.media.url}" alt="${post.media.alt || post.title}">
                 <p>${post.body}</p>
                 <div>Tags: ${post.tags.join(', ')}</div>
