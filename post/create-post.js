@@ -4,14 +4,36 @@ const postForm = document.querySelector(".createBlogForm");
 postForm.addEventListener("submit", submitBlogPost);
 const bearerToken = window.localStorage.getItem("Bearer Token");
 const userName = window.localStorage.getItem("User Storage");
+const imgPreview = document.getElementById("imagePreview"); 
+const imgInput = document.getElementById("image");
 
-
+//If statement to check that the bearer token and username is in the local storage. If not redirect to login
 if (!userName || !bearerToken) {
     window.alert('You must be logged in to view this page');
-    window.location.href = '/account/login.html'; // Stop further execution of the function
+    window.location.href = '/account/login.html';
 }
 
+//Function for previewing image
+function previewImage(){
+    console.log(imgInput.value.length)
+    imgPreview.innerHTML = `
+    <label for="preview">
+    Image preview:
+    </label>
+    <img src="${imgInput.value}" id="preview" alt="preview" style="width: 400px">`
 
+    if (imgInput.value.length > 13){
+    imgPreview.style.display = "flex";
+    }
+    else{
+        imgPreview.style.display = "none";
+    }
+}
+
+//Eventlistener to preview image
+imgInput.addEventListener('input', previewImage);
+
+//Function to create a new blog post
 function submitBlogPost(event) {
     event.preventDefault();
     const formData = new FormData(event.target);
@@ -32,7 +54,7 @@ function submitBlogPost(event) {
             "tags": [formData.get("tags")],
             "media": {
                 "url": formData.get("image"),
-                "alt": "test"
+                "alt": formData.get("altText")
             }
         })
     })
@@ -50,9 +72,11 @@ function submitBlogPost(event) {
     });
 }
 
+//Eventlisteners for logging out
 logOutBtn.addEventListener("click", logout) 
 logOutDesktopBtn.addEventListener("click", logout) 
 
+//Function for logging out
 function logout(){
     window.localStorage.removeItem('User Storage')
     window.localStorage.removeItem('Bearer Token');

@@ -7,18 +7,43 @@ const tagField = document.getElementById("tags")
 const submitBtn = document.getElementById("submitButton")
 const userId = window.localStorage.getItem("User Storage");
 const bearerToken = window.localStorage.getItem("Bearer Token");
+const imgPreview = document.getElementById("imagePreview"); 
+const imgInput = document.getElementById("image");
+const altInput = document.getElementById("altText")
 
+
+
+//If statement to check that the bearer token and username is in the local storage. If not redirect to login
 if (!userId || !bearerToken) {
     window.alert('You must be logged in to view this page');
-    window.location.href = '/account/login.html'; // Stop further execution of the function
+    window.location.href = '/account/login.html';
 }
 
-    // Function to fetch blog posts from the API
+//Function for previewing image
+function previewImage(){
+    imgPreview.innerHTML = `
+    <label for="preview">
+    Image preview:
+    </label>
+    <img src="${imgInput.value}" id="preview" alt="preview" style="width: 400px">`
+
+    if (imgInput.value.length > 13){
+    imgPreview.style.display = "flex";
+    }
+    else{
+        imgPreview.style.display = "none";
+    }
+}
+
+//Eventlistener to trigger image preview
+imgInput.addEventListener('input', previewImage);
+
+
+// Function to fetch blog posts
     async function fetchBlogPosts() {
         const stringParam = window.location.search
         const urlParam = new URLSearchParams(stringParam);
         const blogPostId = urlParam.get("ID")
-        console.log(blogPostId)
         fetch(`https://v2.api.noroff.dev/blog/posts/${userId}/${blogPostId}`, {
             method: "GET"
         })
@@ -29,12 +54,13 @@ if (!userId || !bearerToken) {
             return response.json();
         })
         .then(data => {
-            console.log(data)
             const fieldData = data.data
             titleField.value = fieldData.title
             bodyField.value = fieldData.body
             imageField.value = fieldData.media.url
             tagField.value = fieldData.tags
+            altInput.value = fieldData.media.alt
+            previewImage()
         })
         .catch(error => {
             console.error("Error fetching blog post:", error.message);
@@ -43,7 +69,7 @@ if (!userId || !bearerToken) {
 
     
 
-    // Function to handle edit button click
+// Function to handle edit button click
     function handleEdit() {
         const stringParam = window.location.search;
         const urlParam = new URLSearchParams(stringParam);
@@ -52,12 +78,15 @@ if (!userId || !bearerToken) {
         const editedBody = bodyField.value;
         const editedImage = imageField.value;
         const editedTag = tagField.value;
+        const altText = altInput.value;
         
         const requestBody = JSON.stringify({
             title: editedTitle,
             body: editedBody,
+            tags: [editedTag],
             media: {
-                url: editedImage
+                url: editedImage,
+                alt: altText
             }
         });
     
@@ -90,6 +119,7 @@ function handleSubmit(event) {
     handleEdit();
 }
 
+//Eventlistener to update blog post
 document.querySelector('.createBlogForm').addEventListener('submit', handleSubmit);
 
 document.addEventListener("DOMContentLoaded", function() {
@@ -99,9 +129,11 @@ document.addEventListener("DOMContentLoaded", function() {
 logOutBtn.addEventListener("click", logout) 
 logOutDesktopBtn.addEventListener("click", logout) 
 
+//Function for logging out
 function logout(){
     window.localStorage.removeItem('User Storage')
     window.localStorage.removeItem('Bearer Token');
     alert("You have been logged out"); 
     window.location.href = '/account/login.html';
 }
+

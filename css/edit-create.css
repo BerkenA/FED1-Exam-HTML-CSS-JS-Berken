@@ -56,6 +56,11 @@ button {
     margin-bottom: 1rem;
 }
 
+#imagePreview {
+    flex-direction: column;
+    align-items: center;
+}
+
 /* Medium (xl) */
 @media (min-width: 744px) {
     /* Your styles for the medium breakpoint here */

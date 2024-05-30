@@ -88,10 +88,12 @@ nav {
     .navbarIcons {
         display: flex;
         gap: 4rem;
+        margin-right: 1rem;
     }
 
     .logoScience img {
         height: 4rem;
+        margin-left: 1rem;
     }
 
     #burgerMenu{

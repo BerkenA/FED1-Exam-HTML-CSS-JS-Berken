@@ -10,6 +10,7 @@
         content="tech tips, technology news, tech tutorials, tech blog, gadget reviews, software tips, hardware tips, tech guides">
     <meta name="author" content="Tech Tips Daily">
     <title>Tech Tips Daily</title>
+    <link rel="icon" href="/assets/Tech-tips-daily-logo.jpg" type="image/jpg">
     <link rel="stylesheet" href="/css/make.css">
     <link rel="stylesheet" type="text/css" href="/css/header.css">
     <link rel="stylesheet" type="text/css" href="/css/footer.css">
@@ -40,7 +41,7 @@
                     </li>
                 </ul>
             </div>
-            <!-- My logo and language -->
+            <!-- My logo -->
             <div class="logoScience">
                 <a href="/index.html" aria-label="click here to get to home page">
                     <img class="techLogo" src="/assets/Tech-tips-daily-logo.jpg" alt="tech tips daily logo">
@@ -61,13 +62,14 @@
                     <a href="#" aria-label="click here to go logout"> Logout </a>
                 </li>
             </ul>
-            <!-- Logos for tickets and mobile/tablet menu -->
+            <!-- Logos for mobile/tablet menu -->
             <div class="navbarIcons">
                 <div class="">
                     <a href="/account/login.html" aria-label="click here to login">
                         <i class="fa-solid fa-right-to-bracket fa-2xl" style="color: #242424;"></i>
                     </a>
                 </div>
+                <!-- My burgermenu logos -->
                 <div class="menuHide" id="burgerOpen" aria-label="click here to open the menu">
                     <i class="fa-solid fa-bars fa-2xl" style="color: #242424;" id="burgerOpenIcon"></i>
                     <i class="fa-solid fa-xmark fa-2xl" id="burgerCloseIcon" style="color: #242424;"></i>
@@ -75,6 +77,7 @@
             </div>
         </nav>
     </header>
+
     <main>
         <section>
             <div class="centerForm">
@@ -93,15 +96,22 @@
                         Tags:
                     </label>
                     <input type="text" placeholder="Type your tags here" id="tags" name="tags" maxlength="24" />
+                    <label for="altText">
+                        Alt:
+                    </label>
+                    <input type="text" placeholder="Submit your alt text" id="altText" name="altText" />
                     <label for="image">
                         Submit image:
                     </label>
                     <input type="text" placeholder="Submit your image here" id="image" name="image" />
+                    <section style="display: none;" id="imagePreview">
+                    </section>
                     <button class="blogPost" type="submit">Create blog post</button>
                 </form>
             </div>
         </section>
     </main>
+
     <section>
         <footer>
             <div class="section-bottom">
