@@ -13,18 +13,22 @@
 
 body {
     width: 100%;
-    min-height: 100vh;
+    height: 100vh;
     overflow-x: hidden;
     display: flex;
     flex-direction: column;
+}
+
+main {
+    height: 100%;
     margin: 0;
+    flex: 1;
 }
 
 .formSection {
     display: flex;
     flex-direction: column;
     align-items: center;
-    flex: 1;
 }
 
 .formSection input, button {
@@ -36,7 +40,7 @@ body {
 .centerPicture {
     display: flex;
     justify-content: center;
-    padding: 1rem 0 1rem 0;
+    padding: 6rem 0 1rem 0;
 }
 
 #submit {
@@ -52,8 +56,6 @@ body {
 }
 
 .section-bottom {
-    position: absolute;
-    bottom: 0;
     background-color: var(--secondary);
     width: 100%;
 }

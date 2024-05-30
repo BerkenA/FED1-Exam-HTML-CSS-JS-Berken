@@ -57,6 +57,7 @@ button:hover {
 .singlePost :nth-child(5), .singlePost :nth-child(6) {
     align-self: center;
     margin-top: 1rem;
+    text-wrap: nowrap;
 }
 
 /* Medium (m) */
