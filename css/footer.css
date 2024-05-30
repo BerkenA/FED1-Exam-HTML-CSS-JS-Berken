@@ -28,15 +28,15 @@
     background-color: var(--secondary);
 }
 
-.section-bottom {
-    background-color: var(--secondary);
-    width: 100%;
-}
-
-.section-bottom img {
-    width: 30%;
-    height: 100%;
-}
+    .section-bottom {
+        background-color: var(--secondary);
+        width: 100%;
+    }
+    
+    .section-bottom img {
+        width: 30%;
+        height: 100%;
+    }
 
 /* Medium (m) */
 @media (min-width: 744px) {
