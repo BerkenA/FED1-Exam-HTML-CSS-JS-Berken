@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
     async function fetchPostById(postId) {
         const apiUrl = `https://v2.api.noroff.dev/blog/posts/berate/${postId}`;
         const singlePostDiv = document.querySelector(".singlePost");
-
+        
         try {
             const response = await fetch(apiUrl);
             if (!response.ok) {
